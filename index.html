@@ -1,0 +1,2249 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#F2F2F7">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>Numérologie Mada by APP Mada</title>
+<style>
+/* ============================================================
+   NUMÉRO MADA — DESIGN SYSTEM STYLE APPLE (iOS 17 / macOS)
+   Police système San Francisco, verre dépoli, listes groupées
+   ============================================================ */
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;-webkit-font-smoothing:antialiased}
+:root{
+  /* iOS system palette — light */
+  --blue:#007AFF;--blue-d:#0A84FF;--indigo:#5856D6;--purple:#AF52DE;
+  --pink:#FF2D55;--red:#FF3B30;--orange:#FF9500;--yellow:#FFCC00;
+  --green:#34C759;--teal:#30B0C7;--mint:#00C7BE;--brown:#A2845E;
+  --bg:#F2F2F7;--bg-elev:#FFFFFF;--group-bg:#FFFFFF;
+  --sep:rgba(60,60,67,0.12);--sep-opaque:#C6C6C8;
+  --label:#000000;--label2:rgba(60,60,67,0.6);--label3:rgba(60,60,67,0.3);
+  --fill:rgba(120,120,128,0.12);--fill2:rgba(120,120,128,0.16);
+  --glass:rgba(255,255,255,0.72);--glass-nav:rgba(249,249,249,0.82);
+  --tint:var(--blue);
+  --radius:14px;--radius-lg:22px;--radius-sm:10px;
+  --safe-top:env(safe-area-inset-top,0px);--safe-bot:env(safe-area-inset-bottom,0px);
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Segoe UI,Roboto,sans-serif;
+  --ease:cubic-bezier(0.32,0.72,0,1);
+}
+[data-theme="dark"]{
+  --bg:#000000;--bg-elev:#1C1C1E;--group-bg:#1C1C1E;
+  --sep:rgba(84,84,88,0.6);--sep-opaque:#38383A;
+  --label:#FFFFFF;--label2:rgba(235,235,245,0.6);--label3:rgba(235,235,245,0.3);
+  --fill:rgba(120,120,128,0.24);--fill2:rgba(120,120,128,0.32);
+  --glass:rgba(30,30,32,0.72);--glass-nav:rgba(30,30,32,0.82);
+  --blue:#0A84FF;--green:#30D158;--red:#FF453A;--orange:#FF9F0A;--purple:#BF5AF2;--pink:#FF375F;--yellow:#FFD60A;--indigo:#5E5CE6;--teal:#40C8E0;
+}
+html,body{height:100%}
+body{font-family:var(--font);background:var(--bg);color:var(--label);
+  font-size:17px;line-height:1.45;letter-spacing:-0.01em;overflow-x:hidden;
+  transition:background .4s var(--ease),color .4s var(--ease)}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+input,select,textarea{font-family:inherit;font-size:17px;border:none;outline:none;background:none;color:inherit}
+svg{display:block}
+::-webkit-scrollbar{width:0;height:0}
+
+/* ===== SCREEN SYSTEM ===== */
+.screen{display:none;flex-direction:column;min-height:100vh;min-height:100dvh}
+.screen.active{display:flex}
+.app-wrap{max-width:520px;margin:0 auto;position:relative}
+.scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-bottom:calc(96px + var(--safe-bot))}
+
+/* ===== iOS LARGE-TITLE NAV BAR ===== */
+.nav{position:sticky;top:0;z-index:50;background:var(--glass-nav);
+  backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);
+  padding-top:var(--safe-top)}
+.nav-bar{height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 8px}
+.nav-title{font-size:17px;font-weight:600;letter-spacing:-0.02em}
+.nav-btn{min-width:44px;height:44px;display:flex;align-items:center;justify-content:center;
+  color:var(--tint);font-size:17px;font-weight:400;gap:2px;padding:0 6px}
+.nav-btn.bold{font-weight:600}
+.nav-btn:active{opacity:.4}
+.brand-tl{display:flex;align-items:center;gap:6px;padding:6px 8px;height:44px;margin-left:4px}
+.brand-tl:active{opacity:.5}
+.brand-fb{width:22px;height:22px;border-radius:6px;background:#1877F2;color:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;
+  font-family:Georgia,"Times New Roman",serif;line-height:1;padding-bottom:1px}
+.brand-name{font-size:13px;font-weight:600;color:var(--label2);letter-spacing:-0.01em}
+.nav-large{padding:0 16px 8px;font-size:34px;font-weight:700;letter-spacing:-0.03em}
+.nav-sep{height:.5px;background:var(--sep)}
+
+/* ===== GROUPED LIST (iOS inset) ===== */
+.section{padding:0 16px;margin-top:26px}
+.section-hdr{font-size:13px;font-weight:400;color:var(--label2);text-transform:uppercase;
+  letter-spacing:.02em;padding:0 16px 7px}
+.section-ftr{font-size:13px;color:var(--label2);padding:7px 16px 0;line-height:1.35}
+.group{background:var(--group-bg);border-radius:var(--radius);overflow:hidden}
+.row{display:flex;align-items:center;gap:12px;padding:12px 16px;min-height:44px;position:relative;
+  background:var(--group-bg);transition:background .15s}
+.row:active{background:var(--fill)}
+.row+.row::before{content:"";position:absolute;top:0;left:52px;right:0;height:.5px;background:var(--sep)}
+.row.no-inset+.row::before,.row+.row.no-inset::before{left:16px}
+.row-icon{width:29px;height:29px;border-radius:7px;display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:16px;flex-shrink:0}
+.row-label{flex:1;font-size:17px}
+.row-sub{font-size:13px;color:var(--label2);margin-top:1px}
+.row-val{color:var(--label2);font-size:17px}
+.row-chev{color:var(--label3);font-size:15px;font-weight:600}
+
+/* ===== BUTTONS ===== */
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;
+  padding:15px;border-radius:var(--radius);font-size:17px;font-weight:600;transition:transform .1s,opacity .15s}
+.btn:active{transform:scale(.97);opacity:.85}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-tint{background:var(--fill);color:var(--tint)}
+.btn-gray{background:var(--fill);color:var(--label)}
+.btn-pro{background:linear-gradient(135deg,#FFD60A,#FF9500);color:#3a2600}
+.btn-lg{padding:16px;font-size:18px;border-radius:var(--radius-lg)}
+
+/* ===== ONBOARDING / LANG ===== */
+#s-lang{background:var(--bg);align-items:center;justify-content:center;padding:32px;text-align:center}
+.onb-logo{width:112px;height:112px;border-radius:26px;background:linear-gradient(160deg,#5856D6,#AF52DE 55%,#FF2D55);
+  display:flex;align-items:center;justify-content:center;font-size:60px;margin-bottom:28px;
+  box-shadow:0 20px 50px -12px rgba(88,86,214,.55)}
+.onb-title{font-size:32px;font-weight:700;letter-spacing:-0.03em;margin-bottom:8px}
+.onb-sub{font-size:16px;color:var(--label2);margin-bottom:44px;max-width:300px}
+.lang-card{width:100%;max-width:340px;padding:17px 20px;border-radius:16px;background:var(--group-bg);
+  display:flex;align-items:center;gap:14px;margin-bottom:12px;font-size:18px;font-weight:500;
+  transition:transform .1s}
+.lang-card:active{transform:scale(.97)}
+.lang-flag{font-size:28px}
+.lang-arrow{margin-left:auto;color:var(--label3)}
+
+/* ===== HERO CARD (home) ===== */
+.hero{margin:8px 16px 0;padding:28px 22px;border-radius:var(--radius-lg);
+  background:linear-gradient(150deg,#5856D6,#AF52DE 60%,#FF2D55);color:#fff;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;top:-40px;right:-30px;width:180px;height:180px;
+  background:radial-gradient(circle,rgba(255,255,255,.22),transparent 70%)}
+.hero-emoji{font-size:34px}
+.hero-name{font-size:26px;font-weight:700;letter-spacing:-0.02em;margin-top:10px}
+.hero-meta{font-size:14px;opacity:.85;margin-top:2px}
+.hero-nums{display:flex;gap:10px;margin-top:20px;position:relative;z-index:1;flex-wrap:wrap}
+.hero-num{background:rgba(255,255,255,.18);backdrop-filter:blur(4px);border-radius:12px;
+  padding:10px 14px;text-align:center;min-width:62px}
+.hero-num .v{font-size:24px;font-weight:700}
+.hero-num .l{font-size:10px;opacity:.85;letter-spacing:.02em;margin-top:1px}
+
+/* ===== BIG ACTION CARDS ===== */
+.action-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 16px;margin-top:16px}
+.action-card{background:var(--group-bg);border-radius:var(--radius-lg);padding:18px;
+  display:flex;flex-direction:column;gap:8px;transition:transform .1s}
+.action-card:active{transform:scale(.96)}
+.action-card.wide{grid-column:1/-1;flex-direction:row;align-items:center}
+.action-ic{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  font-size:22px;color:#fff}
+.action-t{font-size:16px;font-weight:600}
+.action-d{font-size:13px;color:var(--label2);line-height:1.3}
+.action-card.wide .action-txt{flex:1}
+
+/* ===== FORM ===== */
+.field{background:var(--group-bg);border-radius:var(--radius);overflow:hidden}
+.field-row{display:flex;align-items:center;gap:10px;padding:12px 16px;min-height:48px;position:relative}
+.field-row+.field-row::before{content:"";position:absolute;top:0;left:16px;right:0;height:.5px;background:var(--sep)}
+.field-row label{font-size:17px;color:var(--label);width:96px;flex-shrink:0}
+.field-row input,.field-row select{flex:1;font-size:17px;text-align:right;color:var(--label)}
+.field-row input::placeholder{color:var(--label3)}
+.seg{display:flex;background:var(--fill);border-radius:9px;padding:2px;gap:2px;flex:1}
+.seg-opt{flex:1;text-align:center;padding:7px 4px;border-radius:7px;font-size:14px;font-weight:500;
+  color:var(--label);transition:.2s}
+.seg-opt.on{background:var(--bg-elev);box-shadow:0 1px 3px rgba(0,0,0,.12);font-weight:600}
+[data-theme="dark"] .seg-opt.on{background:#636366}
+
+/* ===== RESULT — number cards ===== */
+.numcard{background:var(--group-bg);border-radius:var(--radius-lg);margin:0 16px 14px;overflow:hidden}
+.numcard-hd{display:flex;align-items:center;gap:14px;padding:16px 18px}
+.numcard-badge{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;
+  font-size:26px;font-weight:700;color:#fff;flex-shrink:0}
+.numcard-badge.master{position:relative}
+.numcard-badge.master::after{content:"★";position:absolute;top:-4px;right:-4px;font-size:13px;
+  background:var(--yellow);color:#3a2600;width:20px;height:20px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;border:2px solid var(--group-bg)}
+.numcard-ttl{flex:1}
+.numcard-ttl .k{font-size:13px;color:var(--label2);font-weight:500}
+.numcard-ttl .n{font-size:18px;font-weight:700;letter-spacing:-0.02em;margin-top:1px}
+.numcard-ttl .s{font-size:13px;color:var(--label2);margin-top:2px}
+.numcard-body{padding:0 18px 16px}
+.numcard-desc{font-size:15px;color:var(--label);line-height:1.5;margin-bottom:4px}
+.locked-hint{display:flex;align-items:center;gap:8px;padding:14px 18px;background:var(--fill);
+  font-size:14px;color:var(--label2);cursor:pointer;transition:background .15s}
+.locked-hint:active{background:var(--fill2)}
+.locked-hint .lk{color:var(--orange);font-size:16px}
+.seemore{color:var(--tint);font-weight:600;font-size:15px;padding:10px 0 2px;cursor:pointer;display:inline-flex;align-items:center;gap:4px}
+
+/* detail sections inside pro cards */
+.det{margin-top:16px}
+.det-h{font-size:13px;font-weight:600;color:var(--label2);text-transform:uppercase;letter-spacing:.03em;margin-bottom:8px}
+.det-p{font-size:15px;line-height:1.5;color:var(--label);margin-bottom:8px}
+.tag-wrap{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px}
+.tag{padding:5px 11px;border-radius:20px;font-size:13px;font-weight:500;background:var(--fill);color:var(--label)}
+.kv{display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-bottom:.5px solid var(--sep);font-size:15px}
+.kv:last-child{border:none}
+.kv .kk{color:var(--label2);flex-shrink:0}
+.kv .vv{text-align:right;color:var(--label)}
+.quote{font-size:15px;font-style:italic;color:var(--label);padding:14px 16px;background:var(--fill);
+  border-radius:var(--radius);margin-top:12px;line-height:1.5}
+.warn-med{display:flex;gap:8px;align-items:flex-start;background:rgba(255,149,0,.12);border-radius:var(--radius);
+  padding:11px 14px;font-size:13px;color:var(--orange);margin-top:10px;line-height:1.4}
+[data-theme="dark"] .warn-med{background:rgba(255,159,10,.16)}
+.swatches{display:flex;gap:8px;margin:4px 0 10px}
+.swatch{width:32px;height:32px;border-radius:9px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08)}
+
+/* ===== SEGMENTED TABS (results) ===== */
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:12px 16px;position:sticky;top:calc(44px + var(--safe-top));
+  z-index:40;background:var(--glass-nav);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+.tab{padding:7px 15px;border-radius:20px;font-size:14px;font-weight:600;white-space:nowrap;
+  background:var(--fill);color:var(--label);transition:.2s}
+.tab.on{background:var(--tint);color:#fff}
+.tabpane{display:none}
+.tabpane.on{display:block;animation:fade .3s var(--ease)}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* ===== CHART: pyth grid & bars ===== */
+.chart-card{background:var(--group-bg);border-radius:var(--radius-lg);margin:0 16px 14px;padding:18px}
+.chart-title{font-size:16px;font-weight:700;margin-bottom:4px}
+.chart-note{font-size:13px;color:var(--label2);margin-bottom:14px;line-height:1.4}
+.pyth-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:230px;margin:0 auto}
+.pyth-cell{aspect-ratio:1;min-height:62px;border-radius:12px;background:var(--fill);display:flex;flex-direction:column;
+  align-items:center;justify-content:center;position:relative}
+.pyth-cell.filled{background:linear-gradient(150deg,#5856D6,#AF52DE);color:#fff}
+.pyth-cell .pn{font-size:22px;font-weight:700}
+.pyth-cell .pc{font-size:11px;opacity:.8;margin-top:-2px}
+.pyth-cell.empty .pn{color:var(--label3)}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+.bar-num{width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;color:#fff;flex-shrink:0}
+.bar-track{flex:1;height:8px;border-radius:4px;background:var(--fill);overflow:hidden}
+.bar-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,#5856D6,#FF2D55)}
+.bar-cnt{width:26px;text-align:right;font-size:13px;color:var(--label2)}
+
+/* ===== EVENT / TIMELINE ===== */
+.tl{position:relative;padding-left:24px;margin-top:8px}
+.tl::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--sep)}
+.tl-item{position:relative;padding-bottom:16px}
+.tl-dot{position:absolute;left:-24px;top:3px;width:16px;height:16px;border-radius:50%;
+  border:3px solid var(--group-bg);display:flex;align-items:center;justify-content:center}
+.tl-yr{font-size:15px;font-weight:700}
+.tl-txt{font-size:14px;color:var(--label2);line-height:1.4;margin-top:2px}
+.event-big{text-align:center;padding:22px;background:var(--group-bg);border-radius:var(--radius-lg);margin:0 16px 14px}
+.event-num{width:88px;height:88px;border-radius:24px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;
+  font-size:42px;font-weight:700;color:#fff}
+.event-label{font-size:14px;color:var(--label2)}
+.event-name{font-size:22px;font-weight:700;margin-top:2px}
+.meter{display:flex;align-items:center;gap:10px;margin:10px 0}
+.meter-track{flex:1;height:10px;border-radius:5px;background:var(--fill);overflow:hidden}
+.meter-fill{height:100%;border-radius:5px}
+.meter-val{font-size:14px;font-weight:700;width:44px;text-align:right}
+
+/* ===== HISTORY ===== */
+.hist-row{display:flex;align-items:center;gap:12px;padding:11px 16px;position:relative;background:var(--group-bg)}
+.hist-row+.hist-row::before{content:"";position:absolute;top:0;left:60px;right:0;height:.5px;background:var(--sep)}
+.hist-av{width:44px;height:44px;border-radius:12px;background:linear-gradient(150deg,#5856D6,#FF2D55);
+  color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;flex-shrink:0}
+.hist-info{flex:1;min-width:0}
+.hist-nm{font-size:16px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hist-mt{font-size:13px;color:var(--label2);margin-top:1px}
+.hist-star{color:var(--yellow);font-size:18px;padding:6px}
+.empty{text-align:center;padding:60px 30px;color:var(--label2)}
+.empty-ic{font-size:52px;margin-bottom:12px;opacity:.4}
+.search{margin:8px 16px 0;background:var(--fill);border-radius:10px;display:flex;align-items:center;gap:7px;padding:8px 12px}
+.search input{flex:1;font-size:16px}
+
+/* ===== SETTINGS PRO badge ===== */
+.pro-pill{font-size:11px;font-weight:700;padding:3px 8px;border-radius:8px;
+  background:linear-gradient(135deg,#FFD60A,#FF9500);color:#3a2600;letter-spacing:.03em}
+.free-pill{font-size:11px;font-weight:600;padding:3px 8px;border-radius:8px;background:var(--fill);color:var(--label2)}
+
+/* ===== TAB BAR ===== */
+.tabbar{position:fixed;bottom:0;left:0;right:0;z-index:60;background:var(--glass-nav);
+  backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);
+  border-top:.5px solid var(--sep);display:flex;padding-bottom:var(--safe-bot);max-width:520px;margin:0 auto}
+.tabbar-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:7px 0 5px;color:var(--label3)}
+.tabbar-item.on{color:var(--tint)}
+.tabbar-ic{font-size:23px}
+.tabbar-lb{font-size:10px;font-weight:500}
+
+/* ===== MODAL / SHEET (iOS) ===== */
+.sheet-bg{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:200;opacity:0;pointer-events:none;
+  transition:opacity .3s;display:flex;align-items:flex-end;justify-content:center}
+.sheet-bg.show{opacity:1;pointer-events:auto}
+.sheet{background:var(--bg);width:100%;max-width:520px;border-radius:14px 14px 0 0;
+  max-height:92vh;overflow-y:auto;transform:translateY(100%);transition:transform .4s var(--ease);
+  padding-bottom:var(--safe-bot)}
+.sheet-bg.show .sheet{transform:none}
+.sheet-grab{width:36px;height:5px;border-radius:3px;background:var(--label3);margin:8px auto}
+.sheet-hd{display:flex;align-items:center;justify-content:space-between;padding:6px 16px 12px}
+.sheet-hd .t{font-size:20px;font-weight:700}
+.sheet-close{width:30px;height:30px;border-radius:50%;background:var(--fill);color:var(--label2);
+  display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:600}
+.sheet-body{padding:0 16px 24px}
+
+/* PRO unlock sheet */
+.pro-hero{text-align:center;padding:8px 20px 20px}
+.pro-crown{font-size:56px;margin-bottom:8px}
+.pro-h1{font-size:26px;font-weight:700;letter-spacing:-0.02em}
+.pro-price{font-size:17px;color:var(--label2);margin-top:4px}
+.pro-feat{display:flex;gap:12px;align-items:flex-start;padding:11px 4px}
+.pro-feat .fic{color:var(--green);font-size:19px;margin-top:1px}
+.pro-feat .ft{font-size:15px}
+.pro-feat .fd{font-size:13px;color:var(--label2)}
+.code-box{display:flex;gap:8px;margin:14px 0}
+.code-input{flex:1;background:var(--fill);border-radius:12px;padding:14px;text-align:center;
+  font-size:22px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.device-id{font-size:15px;font-weight:700;letter-spacing:.1em;background:var(--fill);
+  padding:12px;border-radius:12px;text-align:center;margin:8px 0;-webkit-user-select:all;user-select:all}
+.sms-line{font-size:14px;color:var(--label2);text-align:center;line-height:1.5}
+.toast{position:fixed;left:50%;bottom:calc(96px + var(--safe-bot));transform:translateX(-50%) translateY(20px);
+  background:rgba(30,30,32,.95);color:#fff;padding:12px 20px;border-radius:20px;font-size:15px;
+  z-index:300;opacity:0;pointer-events:none;transition:.3s;backdrop-filter:blur(10px);max-width:88%;text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+[data-theme="dark"] .toast{background:rgba(70,70,72,.95)}
+
+/* misc */
+.disclaimer{font-size:12px;color:var(--label2);line-height:1.5;padding:16px;text-align:center}
+.hidden{display:none!important}
+.spinner{width:34px;height:34px;border:3px solid var(--fill);border-top-color:var(--tint);border-radius:50%;
+  animation:spin .7s linear infinite;margin:0 auto}
+@keyframes spin{to{transform:rotate(360deg)}}
+.center-load{position:fixed;inset:0;background:var(--bg);z-index:400;display:none;flex-direction:column;
+  align-items:center;justify-content:center;gap:14px}
+.center-load.show{display:flex}
+</style>
+</head>
+<body>
+<div class="app-wrap">
+
+<!-- ========== LANGUAGE / ONBOARDING ========== -->
+<section id="s-lang" class="screen active">
+  <div class="onb-logo">🔢</div>
+  <h1 class="onb-title">Numérologie Mada</h1>
+  <div style="font-size:14px;font-weight:600;color:var(--tint);margin-top:4px;letter-spacing:.02em">by APP Mada</div>
+  <p class="onb-sub" id="onb-sub">Numérologie &amp; développement personnel · Choisissez votre langue</p>
+  <button class="lang-card" onclick="chooseLang('fr')">
+    <span class="lang-flag">🇫🇷</span><span>Français</span><span class="lang-arrow">›</span>
+  </button>
+  <button class="lang-card" onclick="chooseLang('mg')">
+    <span class="lang-flag">🇲🇬</span><span>Malagasy</span><span class="lang-arrow">›</span>
+  </button>
+</section>
+
+<!-- ========== HOME ========== -->
+<section id="s-home" class="screen">
+  <div class="nav">
+    <div class="nav-bar">
+      <button class="brand-tl" onclick="logoTap()" aria-label="APP Mada">
+        <span class="brand-fb">f</span><span class="brand-name">APP Mada</span>
+      </button>
+      <div class="nav-title" data-i="app">Numérologie Mada</div>
+      <button class="nav-btn" onclick="openSheet('settings')"><span style="font-size:20px">⚙︎</span></button>
+    </div>
+    <div class="nav-large" data-i="home_hi">Accueil</div>
+  </div>
+  <div class="scroll">
+    <div id="home-hero-slot"></div>
+    <div class="action-grid">
+      <button class="action-card wide" onclick="showScreen('form')" style="background:linear-gradient(150deg,#007AFF,#5856D6);color:#fff">
+        <div class="action-ic" style="background:rgba(255,255,255,.2)">✨</div>
+        <div class="action-txt"><div class="action-t" data-i="new_analysis">Nouvelle analyse</div>
+          <div class="action-d" style="color:rgba(255,255,255,.85)" data-i="new_analysis_d">Nom + date de naissance</div></div>
+        <div style="font-size:20px;opacity:.7">›</div>
+      </button>
+      <button class="action-card" onclick="showScreen('event')">
+        <div class="action-ic" style="background:var(--orange)">🗓️</div>
+        <div class="action-t" data-i="event_pred">Prédire un événement</div>
+        <div class="action-d" data-i="event_pred_d">Date, heure, pays, personne</div>
+      </button>
+      <button class="action-card" onclick="showScreen('country')">
+        <div class="action-ic" style="background:var(--teal)">🌍</div>
+        <div class="action-t" data-i="country_c">Pays &amp; lieux</div>
+        <div class="action-d" data-i="country_c_d">Compatibilité géographique</div>
+      </button>
+      <button class="action-card" onclick="showScreen('compat')">
+        <div class="action-ic" style="background:var(--pink)">💞</div>
+        <div class="action-t" data-i="compat_c">Compatibilité</div>
+        <div class="action-d" data-i="compat_c_d">Amour &amp; travail entre 2 personnes</div>
+      </button>
+      <button class="action-card" onclick="showScreen('history')">
+        <div class="action-ic" style="background:var(--green)">🕘</div>
+        <div class="action-t" data-i="history_c">Historique</div>
+        <div class="action-d" data-i="history_c_d">Analyses sauvegardées</div>
+      </button>
+    </div>
+    <p class="disclaimer" data-i="disc_home">Application de divertissement et de développement personnel. Les résultats ne constituent ni une vérité scientifique, ni un avis médical, psychologique, juridique ou financier.</p>
+  </div>
+</section>
+
+<!-- ========== FORM ========== -->
+<section id="s-form" class="screen">
+  <div class="nav"><div class="nav-bar">
+    <button class="nav-btn" onclick="showScreen('home')">‹ <span data-i="back">Retour</span></button>
+    <div class="nav-title" data-i="new_analysis">Nouvelle analyse</div>
+    <div style="width:64px"></div>
+  </div></div>
+  <div class="scroll">
+    <div class="section" style="margin-top:16px">
+      <div class="field">
+        <div class="field-row"><label data-i="f_name">Nom complet</label>
+          <input id="f-name" type="text" data-ph="ex : RABE Toky" autocomplete="off" autocapitalize="characters"></div>
+        <div class="field-row"><label data-i="f_dob">Naissance</label>
+          <input id="f-dob" type="date" max="2026-12-31"></div>
+        <div class="field-row"><label data-i="f_gender">Sexe</label>
+          <div class="seg">
+            <div class="seg-opt on" data-g="" onclick="pickGender(this,'')" data-i="g_na">—</div>
+            <div class="seg-opt" data-g="M" onclick="pickGender(this,'M')" data-i="g_m">Homme</div>
+            <div class="seg-opt" data-g="F" onclick="pickGender(this,'F')" data-i="g_f">Femme</div>
+          </div></div>
+      </div>
+      <p class="section-ftr" data-i="f_note">Utilisez de préférence le nom complet de naissance pour un calcul pythagoricien fidèle.</p>
+    </div>
+    <div class="section">
+      <button class="btn btn-primary btn-lg" onclick="runAnalysis()">🔢 <span data-i="f_go">Calculer ma numérologie</span></button>
+    </div>
+    <p class="disclaimer" data-i="disc_home"></p>
+  </div>
+</section>
+
+<!-- ========== RESULTS ========== -->
+<section id="s-result" class="screen">
+  <div class="nav"><div class="nav-bar">
+    <button class="nav-btn" onclick="showScreen('home')">‹ <span data-i="back">Retour</span></button>
+    <div class="nav-title" id="res-name">Résultats</div>
+    <button class="nav-btn bold" onclick="shareCurrent()"><span style="font-size:19px">↗</span></button>
+  </div></div>
+  <div class="tabs" id="res-tabs"></div>
+  <div class="scroll" id="res-scroll">
+    <div class="tabpane on" id="pane-core"></div>
+    <div class="tabpane" id="pane-detail"></div>
+    <div class="tabpane" id="pane-cycles"></div>
+    <div class="tabpane" id="pane-karma"></div>
+    <div class="tabpane" id="pane-forecast"></div>
+  </div>
+</section>
+
+<!-- ========== EVENT PREDICTION ========== -->
+<section id="s-event" class="screen">
+  <div class="nav"><div class="nav-bar">
+    <button class="nav-btn" onclick="showScreen('home')">‹ <span data-i="back">Retour</span></button>
+    <div class="nav-title" data-i="event_pred">Prédire un événement</div>
+    <div style="width:64px"></div>
+  </div></div>
+  <div class="scroll">
+    <div class="section" style="margin-top:16px">
+      <p class="section-hdr" data-i="ev_when">Quand &amp; quoi</p>
+      <div class="field">
+        <div class="field-row"><label data-i="ev_title">Événement</label>
+          <input id="ev-title" type="text" data-ph="ex : Mariage, lancement…" autocomplete="off"></div>
+        <div class="field-row"><label data-i="ev_date">Date</label>
+          <input id="ev-date" type="date"></div>
+        <div class="field-row"><label data-i="ev_time">Heure</label>
+          <input id="ev-time" type="time"></div>
+      </div>
+    </div>
+    <div class="section">
+      <p class="section-hdr" data-i="ev_who">Pour qui / où (optionnel)</p>
+      <div class="field">
+        <div class="field-row"><label data-i="ev_person">Personne</label>
+          <input id="ev-person" type="text" data-ph="Nom complet" autocomplete="off" autocapitalize="characters"></div>
+        <div class="field-row"><label data-i="ev_pdob">Sa naissance</label>
+          <input id="ev-pdob" type="date"></div>
+        <div class="field-row"><label data-i="ev_country">Pays / lieu</label>
+          <input id="ev-country" type="text" data-ph="ex : Madagasikara" autocomplete="off"></div>
+      </div>
+      <p class="section-ftr" data-i="ev_note">Laissez vide pour une lecture uniquement « universelle » (mondiale) de la date.</p>
+    </div>
+    <div class="section">
+      <button class="btn btn-primary btn-lg" onclick="runEvent()">🔮 <span data-i="ev_go">Analyser cet instant</span></button>
+    </div>
+    <div id="ev-result"></div>
+  </div>
+</section>
+
+<!-- ========== COUNTRY ========== -->
+<section id="s-country" class="screen">
+  <div class="nav"><div class="nav-bar">
+    <button class="nav-btn" onclick="showScreen('home')">‹ <span data-i="back">Retour</span></button>
+    <div class="nav-title" data-i="country_c">Pays &amp; lieux</div>
+    <div style="width:64px"></div>
+  </div></div>
+  <div class="scroll">
+    <div class="section" style="margin-top:16px">
+      <div class="field">
+        <div class="field-row"><label data-i="f_name">Votre nom</label>
+          <input id="co-name" type="text" data-ph="Nom complet" autocomplete="off" autocapitalize="characters"></div>
+        <div class="field-row"><label data-i="f_dob">Naissance</label>
+          <input id="co-dob" type="date"></div>
+        <div class="field-row"><label data-i="co_place">Lieu</label>
+          <input id="co-place" type="text" data-ph="ex : Madagasikara, Antananarivo…" autocomplete="off"></div>
+      </div>
+    </div>
+    <div class="section">
+      <button class="btn btn-primary btn-lg" onclick="runCountry()">🌍 <span data-i="co_go">Tester la compatibilité</span></button>
+    </div>
+    <div id="co-result"></div>
+  </div>
+</section>
+
+<!-- ========== COMPAT (2 people) ========== -->
+<section id="s-compat" class="screen">
+  <div class="nav"><div class="nav-bar">
+    <button class="nav-btn" onclick="showScreen('home')">‹ <span data-i="back">Retour</span></button>
+    <div class="nav-title" data-i="compat_c">Compatibilité</div>
+    <div style="width:64px"></div>
+  </div></div>
+  <div class="scroll">
+    <div class="section" style="margin-top:16px">
+      <p class="section-hdr" data-i="cp_p1">Personne 1</p>
+      <div class="field">
+        <div class="field-row"><label data-i="f_name">Nom</label><input id="cp-n1" type="text" data-ph="Nom complet" autocapitalize="characters"></div>
+        <div class="field-row"><label data-i="f_dob">Naissance</label><input id="cp-d1" type="date"></div>
+      </div>
+    </div>
+    <div class="section">
+      <p class="section-hdr" data-i="cp_p2">Personne 2</p>
+      <div class="field">
+        <div class="field-row"><label data-i="f_name">Nom</label><input id="cp-n2" type="text" data-ph="Nom complet" autocapitalize="characters"></div>
+        <div class="field-row"><label data-i="f_dob">Naissance</label><input id="cp-d2" type="date"></div>
+      </div>
+    </div>
+    <div class="section">
+      <button class="btn btn-primary btn-lg" onclick="runCompat()">💞 <span data-i="cp_go">Calculer la compatibilité</span></button>
+    </div>
+    <div id="cp-result"></div>
+  </div>
+</section>
+
+<!-- ========== HISTORY ========== -->
+<section id="s-history" class="screen">
+  <div class="nav">
+    <div class="nav-bar">
+      <button class="nav-btn" onclick="showScreen('home')">‹ <span data-i="back">Retour</span></button>
+      <div class="nav-title" data-i="history_c">Historique</div>
+      <button class="nav-btn" onclick="clearHistory()"><span style="font-size:18px">🗑</span></button>
+    </div>
+    <div class="nav-large" data-i="history_c">Historique</div>
+    <div class="search"><span style="color:var(--label2);font-size:15px">🔍</span>
+      <input id="hist-search" type="search" data-ph="Rechercher" oninput="renderHistory()"></div>
+  </div>
+  <div class="scroll"><div class="section" style="margin-top:16px"><div class="group" id="hist-list"></div></div></div>
+</section>
+
+</div><!-- /app-wrap -->
+
+<!-- ========== TAB BAR ========== -->
+<nav class="tabbar" id="tabbar" style="display:none">
+  <button class="tabbar-item on" data-tab="home" onclick="showScreen('home')">
+    <div class="tabbar-ic">🏠</div><div class="tabbar-lb" data-i="tb_home">Accueil</div></button>
+  <button class="tabbar-item" data-tab="event" onclick="showScreen('event')">
+    <div class="tabbar-ic">🗓️</div><div class="tabbar-lb" data-i="tb_event">Événement</div></button>
+  <button class="tabbar-item" data-tab="country" onclick="showScreen('country')">
+    <div class="tabbar-ic">🌍</div><div class="tabbar-lb" data-i="tb_country">Pays</div></button>
+  <button class="tabbar-item" data-tab="history" onclick="showScreen('history')">
+    <div class="tabbar-ic">🕘</div><div class="tabbar-lb" data-i="tb_hist">Historique</div></button>
+</nav>
+
+<!-- ========== SHEETS ========== -->
+<div class="sheet-bg" id="sheet-bg" onclick="if(event.target===this)closeSheet()">
+  <div class="sheet" id="sheet"><div class="sheet-grab"></div>
+    <div class="sheet-hd"><div class="t" id="sheet-title"></div>
+      <button class="sheet-close" onclick="closeSheet()">✕</button></div>
+    <div class="sheet-body" id="sheet-content"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<div class="center-load" id="loader"><div class="spinner"></div><div id="loader-txt" style="color:var(--label2);font-size:15px"></div></div>
+
+<script>
+/* ============================================================
+   NUMÉRO MADA — MOTEUR APPLICATIF
+   1) Licence HMAC-SHA256 verrouillée à l'appareil (100% hors-ligne)
+   2) i18n FR / MG
+   3) Moteur de numérologie pythagoricienne complet
+   4) Interprétations, rendu gratuit/PRO, prévisions
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   CONFIGURATION LICENCE  (à personnaliser puis garder privé)
+   ------------------------------------------------------------ */
+const APP_SECRET = "NUMERO_MADA_2026_$eCr3t_ChANGEz_MOI"; // sel privé, à modifier
+const ADMIN_PIN  = "090610";                               // PIN admin (standard APP Mada)
+const SMS_NUMBER = "034 97 429 61";
+const PRO_PRICE  = "20 000 Ar";
+const ID_ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"; // sans I/1/O/0
+
+/* ===== SHA-256 pur JS (fonctionne sur file:// et WebView Android) ===== */
+function sha256bytes(msgBytes){
+  function rotr(n,x){return (x>>>n)|(x<<(32-n))}
+  const K=[0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,
+    0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,
+    0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,
+    0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,
+    0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,
+    0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,
+    0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,
+    0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2];
+  let H=[0x6a09e667,0xbb67ae85,0x3c6ef372,0xa54ff53a,0x510e527f,0x9b05688c,0x1f83d9ab,0x5be0cd19];
+  const l=msgBytes.length;const bitLen=l*8;
+  const withOne=msgBytes.concat([0x80]);
+  while(withOne.length%64!==56)withOne.push(0);
+  for(let i=7;i>=0;i--)withOne.push((bitLen/Math.pow(2,i*8))&0xff);
+  for(let i=0;i<withOne.length;i+=64){
+    const w=new Array(64);
+    for(let t=0;t<16;t++)w[t]=(withOne[i+t*4]<<24)|(withOne[i+t*4+1]<<16)|(withOne[i+t*4+2]<<8)|(withOne[i+t*4+3]);
+    for(let t=16;t<64;t++){
+      const s0=rotr(7,w[t-15])^rotr(18,w[t-15])^(w[t-15]>>>3);
+      const s1=rotr(17,w[t-2])^rotr(19,w[t-2])^(w[t-2]>>>10);
+      w[t]=(w[t-16]+s0+w[t-7]+s1)|0;
+    }
+    let[a,b,c,d,e,f,g,h]=H;
+    for(let t=0;t<64;t++){
+      const S1=rotr(6,e)^rotr(11,e)^rotr(25,e);
+      const ch=(e&f)^(~e&g);
+      const t1=(h+S1+ch+K[t]+w[t])|0;
+      const S0=rotr(2,a)^rotr(13,a)^rotr(22,a);
+      const maj=(a&b)^(a&c)^(b&c);
+      const t2=(S0+maj)|0;
+      h=g;g=f;f=e;e=(d+t1)|0;d=c;c=b;b=a;a=(t1+t2)|0;
+    }
+    H=[(H[0]+a)|0,(H[1]+b)|0,(H[2]+c)|0,(H[3]+d)|0,(H[4]+e)|0,(H[5]+f)|0,(H[6]+g)|0,(H[7]+h)|0];
+  }
+  const out=[];
+  for(const x of H){out.push((x>>>24)&0xff,(x>>>16)&0xff,(x>>>8)&0xff,x&0xff);}
+  return out;
+}
+function strBytes(s){const b=[];for(let i=0;i<s.length;i++){let c=s.charCodeAt(i);
+  if(c<128)b.push(c);else if(c<2048){b.push(192|(c>>6),128|(c&63));}
+  else{b.push(224|(c>>12),128|((c>>6)&63),128|(c&63));}}return b;}
+function hmacSha256(key,msg){
+  let kb=strBytes(key);if(kb.length>64)kb=sha256bytes(kb);while(kb.length<64)kb.push(0);
+  const ipad=kb.map(b=>b^0x36),opad=kb.map(b=>b^0x5c);
+  const inner=sha256bytes(ipad.concat(strBytes(msg)));
+  return sha256bytes(opad.concat(inner));
+}
+/* device id + code d'activation */
+function makeDeviceId(){
+  let existing=localStorage.getItem("nm_device");
+  if(existing)return existing;
+  let id="";const A=ID_ALPHABET;
+  const rnd=new Uint8Array(8);(crypto&&crypto.getRandomValues)?crypto.getRandomValues(rnd):rnd.forEach((_,i)=>rnd[i]=Math.floor(Math.random()*256));
+  for(let i=0;i<8;i++){id+=A[rnd[i]%A.length];if(i===3)id+="-";}
+  localStorage.setItem("nm_device",id);return id;
+}
+function activationCodeFor(deviceId){
+  const mac=hmacSha256(APP_SECRET,deviceId);
+  let out="";for(let i=0;i<8;i++){out+=ID_ALPHABET[mac[i]%ID_ALPHABET.length];if(i===3)out+="-";}
+  return out;
+}
+function isPro(){return localStorage.getItem("nm_pro")==="1";}
+function tryUnlock(code){
+  const clean=(code||"").toUpperCase().replace(/[^A-Z0-9]/g,"");
+  const want=activationCodeFor(makeDeviceId()).replace("-","");
+  if(clean===want){localStorage.setItem("nm_pro","1");return true;}
+  return false;
+}
+
+/* ------------------------------------------------------------
+   i18n
+   ------------------------------------------------------------ */
+let LANG="fr";
+const I18N={
+  fr:{app:"Numérologie Mada",home_hi:"Accueil",onb_sub:"Numérologie & développement personnel · Choisissez votre langue",
+    new_analysis:"Nouvelle analyse",new_analysis_d:"Nom + date de naissance",
+    event_pred:"Prédire un événement",event_pred_d:"Date, heure, pays, personne",
+    country_c:"Pays & lieux",country_c_d:"Compatibilité géographique",
+    compat_c:"Compatibilité",compat_c_d:"Amour & travail entre 2 personnes",
+    history_c:"Historique",history_c_d:"Analyses sauvegardées",
+    disc_home:"Application de divertissement et de développement personnel. Les résultats ne constituent ni une vérité scientifique, ni un avis médical, psychologique, juridique ou financier.",
+    back:"Retour",f_name:"Nom complet",f_dob:"Naissance",f_gender:"Sexe",g_na:"—",g_m:"Homme",g_f:"Femme",
+    f_note:"Utilisez de préférence le nom complet de naissance pour un calcul pythagoricien fidèle.",
+    f_go:"Calculer ma numérologie",
+    ev_when:"Quand & quoi",ev_title:"Événement",ev_date:"Date",ev_time:"Heure",
+    ev_who:"Pour qui / où (optionnel)",ev_person:"Personne",ev_pdob:"Sa naissance",ev_country:"Pays / lieu",
+    ev_note:"Laissez vide pour une lecture uniquement « universelle » (mondiale) de la date.",ev_go:"Analyser cet instant",
+    co_place:"Lieu",co_go:"Tester la compatibilité",
+    cp_p1:"Personne 1",cp_p2:"Personne 2",cp_go:"Calculer la compatibilité",
+    tb_home:"Accueil",tb_event:"Événement",tb_country:"Pays",tb_hist:"Historique",
+    tab_core:"Chiffres clés",tab_detail:"Profil complet",tab_cycles:"Cycles",tab_karma:"Karma",tab_forecast:"Prévisions",
+    settings:"Réglages",lang:"Langue",theme:"Apparence",dark:"Mode sombre",
+    pro_status:"Statut",restore:"Restaurer un achat",about:"À propos",reset:"Réinitialiser l'app",
+    unlock_pro:"Passer en PRO",see_more:"Voir plus",locked:"Contenu PRO — appuyez pour débloquer",
+    born:"Né(e) le",share:"Partager",pdf:"Rapport PDF",
+    q_str:"Qualités",q_weak:"Défauts",q_tal:"Talents",q_chal:"Défis",q_adv:"Conseils",
+    s_love:"Amour",s_marriage:"Mariage",s_family:"Famille",s_children:"Enfants",s_rel:"Relations",
+    s_work:"Travail",s_biz:"Business",s_money:"Argent",s_career:"Carrière",
+    s_health:"Santé",s_spirit:"Spiritualité",s_luck:"Chance",s_colors:"Couleurs",s_days:"Jours",
+    s_months:"Mois",s_years:"Années clés",s_prof:"Professions",s_stone:"Pierre",s_lovecompat:"Compat. amour",s_workcompat:"Compat. travail",
+    med_warn:"Information à titre indicatif. Ce n'est pas un avis médical — consultez un professionnel de santé.",
+    unlock_title:"Débloquer Numérologie Mada PRO",unlock_sub:"Accès complet à toutes les interprétations",
+    device_label:"Votre identifiant appareil",sms_instr:"Envoyez cet identifiant par SMS au",
+    then_price:"puis recevez votre code ("+PRO_PRICE+")",enter_code:"Entrez votre code d'activation",
+    activate:"Activer",copy_id:"Copier l'ID",code_ok:"PRO activé ! Merci 🎉",code_bad:"Code invalide, vérifiez et réessayez.",
+    copied:"Copié",saved:"Analyse enregistrée",need_name:"Entrez un nom",need_date:"Entrez une date",
+    no_history:"Aucune analyse enregistrée",confirm_clear:"Effacer tout l'historique ?",
+    universal_day:"Jour universel",personal_day:"Jour personnel",moment:"Énergie de l'instant",
+    country_energy:"Énergie du lieu",p_country:"Vous & le lieu",p_date:"Vous & la date",
+    calculating:"Calcul en cours…",
+    ev_verdict_hi:"Instant très favorable",ev_verdict_ok:"Instant favorable",ev_verdict_mid:"Instant neutre",ev_verdict_lo:"Instant délicat",
+    ev_hour:"Heure",lp:"Chemin de Vie",expr:"Expression",soul:"Élan d'Âme",pers:"Personnalité",
+    reset_confirm:"Réinitialiser l'app effacera l'historique. Continuer ?",
+    disc_short:"Divertissement uniquement · pas un avis médical/pro"},
+  mg:{app:"Numérologie Mada",home_hi:"Fandraisana",onb_sub:"Numerolojia & fampandrosoana ny tena · Safidio ny fiteninao",
+    new_analysis:"Fanadihadiana vaovao",new_analysis_d:"Anarana + daty nahaterahana",
+    event_pred:"Maminavina hetsika",event_pred_d:"Daty, ora, firenena, olona",
+    country_c:"Firenena & toerana",country_c_d:"Fifanarahana amin'ny toerana",
+    compat_c:"Fifanarahana",compat_c_d:"Fitiavana & asa (olona 2)",
+    history_c:"Tantara",history_c_d:"Fanadihadiana voatahiry",
+    disc_home:"Fampiharana ho fialam-boly sy fampandrosoana ny tena. Tsy fahamarinana siantifika izy ireo, ary tsy toro-hevitra ara-pahasalamana, ara-tsaina, ara-dalàna na ara-bola.",
+    back:"Hiverina",f_name:"Anarana feno",f_dob:"Nahaterahana",f_gender:"Sexe",g_na:"—",g_m:"Lahy",g_f:"Vavy",
+    f_note:"Ampiasao ny anarana feno nahaterahana mba ho marina ny kajy pythagoreana.",
+    f_go:"Kajio ny numerolojiako",
+    ev_when:"Rahoviana & inona",ev_title:"Hetsika",ev_date:"Daty",ev_time:"Ora",
+    ev_who:"Ho an'iza / aiza (tsy voatery)",ev_person:"Olona",ev_pdob:"Nahaterahany",ev_country:"Firenena / toerana",
+    ev_note:"Avelao foana raha vakiana « manerantany » fotsiny ny daty.",ev_go:"Analyse ity fotoana ity",
+    co_place:"Toerana",co_go:"Andramo ny fifanarahana",
+    cp_p1:"Olona 1",cp_p2:"Olona 2",cp_go:"Kajio ny fifanarahana",
+    tb_home:"Fandraisana",tb_event:"Hetsika",tb_country:"Firenena",tb_hist:"Tantara",
+    tab_core:"Isa fototra",tab_detail:"Mombamomba feno",tab_cycles:"Tsingerina",tab_karma:"Karma",tab_forecast:"Vinavina",
+    settings:"Fikirana",lang:"Fiteny",theme:"Endrika",dark:"Maizina",
+    pro_status:"Sata",restore:"Averina ny fividianana",about:"Mombamomba",reset:"Averina ho voalohany",
+    unlock_pro:"Hifindra PRO",see_more:"Hijery bebe kokoa",locked:"Votoaty PRO — tsindrio hanokafana",
+    born:"Teraka",share:"Zarao",pdf:"Tatitra PDF",
+    q_str:"Hatsarana",q_weak:"Kilema",q_tal:"Talenta",q_chal:"Fanamby",q_adv:"Torohevitra",
+    s_love:"Fitiavana",s_marriage:"Fanambadiana",s_family:"Fianakaviana",s_children:"Zanaka",s_rel:"Fifandraisana",
+    s_work:"Asa",s_biz:"Fandraharahana",s_money:"Vola",s_career:"Asa (carrière)",
+    s_health:"Fahasalamana",s_spirit:"Ara-panahy",s_luck:"Vintana",s_colors:"Loko",s_days:"Andro",
+    s_months:"Volana",s_years:"Taona lehibe",s_prof:"Asa mety",s_stone:"Vato",s_lovecompat:"Fifanarahana fitiavana",s_workcompat:"Fifanarahana asa",
+    med_warn:"Fampahalalana fotsiny. Tsy toro-hevitra ara-pahasalamana — manontania dokotera.",
+    unlock_title:"Sokafy Numérologie Mada PRO",unlock_sub:"Fidirana feno amin'ny fandikana rehetra",
+    device_label:"Ny mari-pamantarana ny fitaovanao",sms_instr:"Alefaso amin'ny SMS io ID io mankany",
+    then_price:"dia raiso ny kaodinao ("+PRO_PRICE+")",enter_code:"Ampidiro ny kaody fanokafana",
+    activate:"Sokafy",copy_id:"Adikao ny ID",code_ok:"PRO voasokatra ! Misaotra 🎉",code_bad:"Kaody diso, hamarino dia andramo indray.",
+    copied:"Voadika",saved:"Voatahiry",need_name:"Ampidiro anarana",need_date:"Ampidiro daty",
+    no_history:"Tsy misy fanadihadiana",confirm_clear:"Fafao ny tantara rehetra ?",
+    universal_day:"Andro manerantany",personal_day:"Andro manokana",moment:"Herin'ny fotoana",
+    country_energy:"Herin'ny toerana",p_country:"Ianao & ny toerana",p_date:"Ianao & ny daty",
+    calculating:"Mikajy…",
+    ev_verdict_hi:"Fotoana tena mahasoa",ev_verdict_ok:"Fotoana mahasoa",ev_verdict_mid:"Fotoana antonony",ev_verdict_lo:"Fotoana sarotra",
+    ev_hour:"Ora",lp:"Lalan-tsaina",expr:"Fanehoana",soul:"Fanirian'ny fo",pers:"Toetra",
+    reset_confirm:"Hamafa ny tantara ny famerenana. Hitohy ?",
+    disc_short:"Fialam-boly · tsy toro-hevitra ara-pahasalamana/matihanina"}
+};
+function tr(k){return (I18N[LANG]&&I18N[LANG][k])||I18N.fr[k]||k;}
+
+/* ------------------------------------------------------------
+   MOTEUR DE NUMÉROLOGIE (Pythagore)
+   ------------------------------------------------------------ */
+const LETTER={a:1,b:2,c:3,d:4,e:5,f:6,g:7,h:8,i:9,j:1,k:2,l:3,m:4,n:5,o:6,p:7,q:8,r:9,s:1,t:2,u:3,v:4,w:5,x:6,y:7,z:8};
+const VOWELS=["a","e","i","o","u","y"];
+const MASTER=[11,22,33];
+function clean(s){return (s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z]/g,"");}
+function words(s){return (s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().split(/[^a-z]+/).filter(Boolean);}
+function reduce(n,master=true){
+  if(n===0)return 0;
+  if(master&&MASTER.includes(n))return n;
+  while(n>9){let s=0,t=n;while(t>0){s+=t%10;t=Math.floor(t/10);}n=s;if(master&&MASTER.includes(n))return n;}
+  return n;
+}
+function digits(str){let s=0;for(const c of String(str).replace(/\D/g,""))s+=+c;return s;}
+function nameSum(name,filter){let s=0;for(const c of clean(name)){if(!filter||filter(c))s+=LETTER[c];}return s;}
+
+function computeChart(name,dobStr){
+  const cn=clean(name);
+  const d=new Date(dobStr);
+  const day=d.getDate(),month=d.getMonth()+1,year=d.getFullYear();
+  const rDay=reduce(day,false),rMon=reduce(month,false),rYr=reduce(digits(year),false);
+
+  const lifePath=reduce(rDay+rMon+rYr,true);
+  const expression=reduce(nameSum(name),true);
+  const soul=reduce(nameSum(name,c=>VOWELS.includes(c)),true);
+  const personality=reduce(nameSum(name,c=>!VOWELS.includes(c)),true);
+  const birthday=reduce(day,true);
+  const maturity=reduce(lifePath+expression,true);
+  // Cornerstone / Capstone / first vowel
+  const cornerstone=cn?reduce(LETTER[cn[0]],true):0;
+  const capstone=cn?reduce(LETTER[cn[cn.length-1]],true):0;
+  let fv=0;for(const c of cn){if(VOWELS.includes(c)){fv=reduce(LETTER[c],true);break;}}
+  const firstVowel=fv;
+  // Balance = premières lettres de chaque mot
+  const balance=reduce(words(name).reduce((a,w)=>a+LETTER[w[0]],0),false);
+  // Bridges
+  const bridgeLE=Math.abs(reduce(lifePath,false)-reduce(expression,false));
+  const bridgeSP=Math.abs(reduce(soul,false)-reduce(personality,false));
+  // Rational thought = 1re lettre du prénom valeur numérique brute + jour brut
+  const rational=reduce(words(name).length?words(name)[0].split("").reduce((a,c)=>a+LETTER[c],0)+day:day,true);
+  // Frequency / intensity
+  const freq={1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0,9:0};
+  for(const c of cn)freq[LETTER[c]]++;
+  // Hidden passion = chiffre le + fréquent (le plus petit en cas d'égalité)
+  let hp=1,hpMax=-1;for(let i=1;i<=9;i++){if(freq[i]>hpMax){hpMax=freq[i];hp=i;}}
+  // Karmic lessons = chiffres 1-9 absents du nom
+  const lessons=[];for(let i=1;i<=9;i++)if(freq[i]===0)lessons.push(i);
+  // Subconscious self = 9 - nb de leçons (chiffres présents)
+  const subconscious=9-lessons.length;
+  // Karmic debt : détecte 13/14/16/19 dans les totaux bruts
+  const debts=[];
+  const rawTotals=[nameSum(name),nameSum(name,c=>VOWELS.includes(c)),nameSum(name,c=>!VOWELS.includes(c)),day+month+digits(year),day];
+  [13,14,16,19].forEach(k=>{if(rawTotals.includes(k))debts.push(k);});
+  // Planes of expression
+  const P={physical:new Set(["e","w","d","o","m","g"]),mental:new Set(["a","h","j","n","p"]),
+    emotional:new Set(["i","b","c","k","r","s","t","x","z"]),intuitive:new Set(["f","q","u","y","l","v"])};
+  const planes={physical:0,mental:0,emotional:0,intuitive:0};
+  for(const c of cn)for(const k in P)if(P[k].has(c))planes[k]++;
+  // Cycles (period cycles)
+  const cycles={first:rMon,second:rDay,third:rYr};
+  // Pinnacles + ages
+  const p1=reduce(rMon+rDay,true),p2=reduce(rDay+rYr,true),p3=reduce(p1+p2,true),p4=reduce(rMon+rYr,true);
+  const lpBase=reduce(lifePath,false);
+  const e1=36-lpBase;
+  const pinnacles=[{n:p1,age:"0–"+e1},{n:p2,age:(e1+1)+"–"+(e1+9)},{n:p3,age:(e1+10)+"–"+(e1+18)},{n:p4,age:(e1+19)+"+"}];
+  // Challenges
+  const c1=Math.abs(rMon-rDay),c2=Math.abs(rDay-rYr),c3=Math.abs(c1-c2),c4=Math.abs(rMon-rYr);
+  const challenges=[c1,c2,c3,c4];
+  // Personal year/month/day (relatif à aujourd'hui)
+  const now=new Date();
+  const py=reduce(rDay+rMon+reduce(digits(now.getFullYear()),false),true);
+  const pm=reduce(reduce(py,false)+(now.getMonth()+1),true);
+  const pd=reduce(reduce(pm,false)+now.getDate(),true);
+  // 9-year forecast
+  const forecast=[];
+  for(let i=0;i<9;i++){const y=now.getFullYear()+i;forecast.push({year:y,n:reduce(rDay+rMon+reduce(digits(y),false),true)});}
+  // Energies (thématiques)
+  const energies={
+    money:reduce(personality+birthday,false),
+    love:reduce(soul+lifePath,false),
+    health:reduce(lifePath+personality,false),
+    spirit:reduce(soul+maturity,false),
+    career:reduce(expression+lifePath,false)
+  };
+
+  return{lifePath,expression,soul,personality,birthday,maturity,cornerstone,capstone,firstVowel,
+    balance,bridgeLE,bridgeSP,rational,freq,hiddenPassion:hp,lessons,subconscious,debts,planes,
+    cycles,pinnacles,challenges,personalYear:py,personalMonth:pm,personalDay:pd,forecast,energies};
+}
+
+/* ===== Universal / date energy (événements) ===== */
+function universalDay(dateStr){const d=new Date(dateStr);return reduce(digits(""+(d.getMonth()+1)+d.getDate()+d.getFullYear()),true);}
+function universalYear(y){return reduce(digits(y),true);}
+function nameNumber(str){return reduce(nameSum(str),true);}
+function personalDayFor(dobStr,dateStr){
+  const b=new Date(dobStr),t=new Date(dateStr);
+  const rMon=reduce(b.getMonth()+1,false),rDay=reduce(b.getDate(),false);
+  const py=reduce(rDay+rMon+reduce(digits(t.getFullYear()),false),false);
+  const pm=reduce(py+(t.getMonth()+1),false);
+  return reduce(pm+t.getDate(),false);
+}
+function hourNumber(timeStr){if(!timeStr)return 0;const[h,m]=timeStr.split(":").map(Number);return reduce((h||0)+(m||0),true);}
+
+/* ===== compatibilité (matrice) ===== */
+const COMPAT={
+  1:{1:6,2:7,3:8,4:6,5:8,6:6,7:6,8:7,9:6},2:{1:7,2:7,3:6,4:8,5:6,6:9,7:7,8:8,9:7},
+  3:{1:8,2:6,3:7,4:5,5:8,6:9,7:7,8:6,9:9},4:{1:6,2:8,3:5,4:7,5:5,6:9,7:8,8:9,9:6},
+  5:{1:8,2:6,3:8,4:5,5:6,6:6,7:8,8:6,9:8},6:{1:6,2:9,3:9,4:9,5:6,6:8,7:6,8:8,9:9},
+  7:{1:6,2:7,3:7,4:8,5:8,6:6,7:6,8:6,9:8},8:{1:7,2:8,3:6,4:9,5:6,6:8,7:6,8:6,9:7},
+  9:{1:6,2:7,3:9,4:6,5:8,6:9,7:8,8:7,9:8}
+};
+function compatScore(a,b){a=reduce(a,false);b=reduce(b,false);return (COMPAT[a]&&COMPAT[a][b])||6;}
+function compatLevel(s){
+  if(s>=9)return{lab_fr:"Fusion parfaite",lab_mg:"Fifanarahana tonga lafatra",c:"#34C759"};
+  if(s>=8)return{lab_fr:"Excellente",lab_mg:"Tena tsara",c:"#30B0C7"};
+  if(s>=7)return{lab_fr:"Harmonieuse",lab_mg:"Mirindra",c:"#5856D6"};
+  if(s>=6)return{lab_fr:"Correcte",lab_mg:"Antonony",c:"#FF9500"};
+  return{lab_fr:"À travailler",lab_mg:"Mila ezaka",c:"#FF3B30"};
+}
+
+/* ============================================================
+   BASE D'INTERPRÉTATIONS — Numérologie Mada by APP Mada
+   Chaque nombre : titre + mots-clés (FR/MG) pour le mode gratuit,
+   puis interprétation complète (PRO).
+   ============================================================ */
+const NUM={
+ 1:{title_fr:"Le Leader",title_mg:"Mpitarika",icon:"👑",hex:"#FF3B30",
+   kw_fr:"Indépendance · initiative · courage",kw_mg:"Fahaleovan-tena · hery · herim-po",
+   short_fr:"Pionnier né, vous ouvrez la voie. Énergie d'initiative, d'autonomie et de leadership.",
+   short_mg:"Mpisava lalana ianao. Herin'ny fandraisana andraikitra sy fitarihana.",
+   desc:"Le 1 est le symbole du commencement, de l'indépendance et de la volonté créatrice. Vous êtes fait pour guider, innover et prendre des initiatives. Votre force réside dans votre capacité à démarrer ce que d'autres n'osent pas.",
+   strengths:"Leadership, indépendance, courage, originalité, détermination, ambition, confiance",
+   weaknesses:"Égocentrisme, impatience, autoritarisme, difficulté à coopérer",
+   talents:"Innover, entreprendre, décider, ouvrir de nouvelles voies",
+   challenges:"Apprendre la coopération et l'humilité, éviter l'isolement",
+   advice:"Cultivez votre leadership tout en restant à l'écoute. Votre force est l'initiative — dosez-la avec de la patience.",
+   love:"Passionné et indépendant, vous avez besoin d'un partenaire qui vous admire tout en respectant votre liberté.",
+   marriage:"Conjoint loyal mais qui a besoin d'espace. Le couple doit préserver votre autonomie.",
+   family:"Souvent le pilier de la famille, parfois autoritaire. Apprenez à déléguer.",
+   children:"Parent protecteur ; évitez d'imposer vos ambitions à vos enfants.",
+   relations:"Vous attirez ceux qui cherchent un guide ; méfiez-vous des relations déséquilibrées.",
+   work:"Excellent en direction, entrepreneuriat, politique ou création.",
+   business:"Fait pour entreprendre et diriger. Associez-vous à des 2 ou 6 pour équilibrer.",
+   money:"Capacité naturelle à générer des revenus, mais tendance à dépenser pour le statut.",
+   career:"PDG, entrepreneur, directeur, inventeur, artiste, athlète de haut niveau",
+   health:"Attention à l'hypertension et aux tensions liées au stress. Méditez.",
+   spirituality:"Chemin du courage et de la création : vous êtes ici pour manifester.",
+   luck:"Jours favorables : lundi et dimanche. Chiffres : 1, 10, 19, 28.",
+   colors:"Rouge vif, or, jaune soleil",colorHex:["#FF3B30","#FF9500","#FFCC00"],
+   days:"Lundi, Dimanche",months:"Janvier, Octobre",years:"Années finissant par 1",
+   professions:"PDG, Entrepreneur, Directeur, Inventeur, Athlète, Chef de projet",
+   stone:"Rubis, Grenat rouge — stimulent l'énergie vitale et le leadership",
+   loveCompat:"3, 5, 6, 9",workCompat:"2, 4, 7",
+   quote:"« Le premier pas est le plus difficile, mais c'est le seul qui compte. »"},
+ 2:{title_fr:"Le Diplomate",title_mg:"Mpanelanelana",icon:"🕊️",hex:"#5856D6",
+   kw_fr:"Harmonie · intuition · coopération",kw_mg:"Firindrana · fahiratan-tsaina · fiaraha-miasa",
+   short_fr:"Sensible et intuitif, vous êtes le médiateur naturel. Votre force est dans la douceur.",
+   short_mg:"Mora fangorahana sy manan-tsaina. Ao amin'ny halemem-panahy ny herinao.",
+   desc:"Le 2 symbolise l'harmonie, la coopération et la sensibilité. Doté d'une intuition remarquable, vous excellez dans la médiation et le partenariat. Vous avancez par la diplomatie plutôt que par la force.",
+   strengths:"Diplomatie, sensibilité, intuition, patience, empathie, loyauté",
+   weaknesses:"Indécision, dépendance affective, hypersensibilité, peur du conflit",
+   talents:"Médiation, arts, musique, conseil, soins, partenariats",
+   challenges:"S'affirmer, décider, surmonter la peur du rejet",
+   advice:"Faites confiance à votre intuition ; apprenez à dire non avec bienveillance.",
+   love:"Partenaire romantique, attentionné et fidèle. Vous donnez beaucoup en amour.",
+   marriage:"Le mariage est fondamental pour vous : conjoint très dévoué.",
+   family:"Vous créez un foyer chaleureux et harmonieux. La famille passe avant tout.",
+   children:"Parent doux et intuitif, attentif aux émotions de ses enfants.",
+   relations:"Vous tissez des liens profonds ; évitez les relations toxiques.",
+   work:"Diplomatie, conseil, arts, soins, enseignement.",
+   business:"Excellent en partenariat ; évitez les directions solitaires.",
+   money:"Tendance à dépenser pour les autres. Apprenez la discipline financière.",
+   career:"Médiateur, thérapeute, musicien, enseignant, psychologue, diplomate",
+   health:"Sensibilité digestive et émotionnelle. Gérez le stress.",
+   spirituality:"Chemin de l'amour et de la guérison : vous avez un don d'apaisement.",
+   luck:"Jours favorables : lundi et vendredi. Chiffres : 2, 11, 20, 29.",
+   colors:"Blanc, argent, bleu pâle, rose",colorHex:["#5856D6","#EC4899","#9FE1CB"],
+   days:"Lundi, Vendredi",months:"Février, Novembre",years:"Années finissant par 2",
+   professions:"Thérapeute, Musicien, Enseignant, Médiateur, Diplomate, Infirmier",
+   stone:"Pierre de lune, Perle — favorisent l'intuition et l'harmonie",
+   loveCompat:"1, 4, 6, 8",workCompat:"1, 6, 9",
+   quote:"« L'harmonie naît de la conciliation des différences. »"},
+ 3:{title_fr:"Le Créateur",title_mg:"Mpamorona",icon:"🎨",hex:"#FF9500",
+   kw_fr:"Créativité · expression · joie",kw_mg:"Famoronana · fanehoana · hafaliana",
+   short_fr:"Rayonnant et expressif, vous êtes un communicant et un artiste né.",
+   short_mg:"Mamirapiratra sy mahay maneho. Mpandaha-teny sy mpanakanto ianao.",
+   desc:"Le 3 rayonne de joie, de créativité et d'expression. Vous avez un don pour la communication et les arts. Votre présence illumine et inspire ceux qui vous entourent.",
+   strengths:"Créativité, optimisme, charme, expression, humour, sociabilité",
+   weaknesses:"Dispersion, superficialité, manque de discipline, dépenses",
+   talents:"Arts, écriture, spectacle, mode, gastronomie, communication",
+   challenges:"Se discipliner et se concentrer, éviter l'éparpillement",
+   advice:"Concentrez votre énergie créative sur peu de projets phares. Le talent réclame de la constance.",
+   love:"Vous séduisez facilement ; vous cherchez un partenaire qui partage votre joie de vivre.",
+   marriage:"Le couple s'épanouit avec un partenaire stimulant intellectuellement.",
+   family:"Vous créez une atmosphère joyeuse et festive. Parent créatif.",
+   children:"Vous stimulez l'imaginaire de vos enfants et leur donnez confiance.",
+   relations:"Très populaire, beaucoup d'amis ; cultivez les amitiés profondes.",
+   work:"Arts, médias, communication, mode, publicité, gastronomie.",
+   business:"Excellent communicant et marketeur ; besoin d'un associé gestionnaire.",
+   money:"Dépenses faciles pour les plaisirs. Apprenez à épargner.",
+   career:"Artiste, écrivain, acteur, designer, publicitaire, chef cuisinier",
+   health:"Gorge et peau sensibles. Exprimez vos émotions.",
+   spirituality:"Spiritualité par la créativité et la joie : vous êtes un canal.",
+   luck:"Jours favorables : mercredi et vendredi. Chiffres : 3, 12, 21, 30.",
+   colors:"Jaune, orange, violet clair, doré",colorHex:["#FF9500","#F97316","#AF52DE"],
+   days:"Mercredi, Vendredi",months:"Mars, Décembre",years:"Années finissant par 3",
+   professions:"Artiste, Acteur, Écrivain, Designer, Publicitaire, Chef",
+   stone:"Citrine, Topaze jaune — stimulent créativité et optimisme",
+   loveCompat:"1, 5, 7, 9",workCompat:"2, 5, 6",
+   quote:"« La créativité, c'est l'intelligence qui s'amuse. »"},
+ 4:{title_fr:"Le Bâtisseur",title_mg:"Mpanorina",icon:"🏗️",hex:"#34C759",
+   kw_fr:"Stabilité · travail · fiabilité",kw_mg:"Fahamarinana · asa · azo antoka",
+   short_fr:"Solide et méthodique, vous construisez pour durer. La fondation sur laquelle on s'appuie.",
+   short_mg:"Mafy orina sy milamina. Manorina ho maharitra ianao.",
+   desc:"Le 4 incarne la stabilité, le travail et la construction. Discipliné et fiable, vous êtes la fondation sur laquelle les autres s'appuient. Vous bâtissez patiemment ce qui dure.",
+   strengths:"Discipline, stabilité, honnêteté, endurance, sens pratique, organisation",
+   weaknesses:"Rigidité, résistance au changement, excès de travail, manque de spontanéité",
+   talents:"Construction, ingénierie, organisation, artisanat, gestion",
+   challenges:"Accepter le changement et la flexibilité, lâcher prise",
+   advice:"Votre force est la persévérance. Autorisez-vous parfois à improviser.",
+   love:"Loyal et stable, peu romantique ; vous montrez votre amour par les actes.",
+   marriage:"Excellent conjoint : vous construisez une vie sûre et sécurisante.",
+   family:"Parent exemplaire qui fournit stabilité et sécurité.",
+   children:"Vous inculquez discipline et valeurs ; restez ouvert à leur créativité.",
+   relations:"Peu d'amis mais très fidèles ; vous êtes le pilier de votre cercle.",
+   work:"Ingénierie, finance, agriculture, construction, comptabilité, informatique.",
+   business:"Excellent gestionnaire : vous bâtissez des entreprises durables.",
+   money:"Économe et prudent : vous savez épargner et investir sur le long terme.",
+   career:"Ingénieur, comptable, architecte, agriculteur, informaticien, gestionnaire",
+   health:"Attention aux os et articulations. Bougez régulièrement.",
+   spirituality:"Spiritualité pratique : vous servez par le travail bien fait.",
+   luck:"Jours favorables : samedi et jeudi. Chiffres : 4, 13, 22, 31.",
+   colors:"Vert forêt, brun terre, gris ardoise",colorHex:["#34C759","#A2845E","#6B7280"],
+   days:"Samedi, Jeudi",months:"Avril, Janvier",years:"Années finissant par 4",
+   professions:"Ingénieur, Comptable, Architecte, Agriculteur, Informaticien",
+   stone:"Émeraude, Jade — symbolisent croissance et stabilité",
+   loveCompat:"2, 6, 8",workCompat:"1, 4, 7",
+   quote:"« Bâtissez sur le roc, jamais sur le sable. »"},
+ 5:{title_fr:"L'Aventurier",title_mg:"Mpitety izao tontolo izao",icon:"🌍",hex:"#007AFF",
+   kw_fr:"Liberté · changement · aventure",kw_mg:"Fahafahana · fiovana · fitsangatsanganana",
+   short_fr:"Libre et curieux, vous refusez les limites. Agent du changement, avide d'expériences.",
+   short_mg:"Malalaka sy liana. Mandà fetra ianao, tia traikefa vaovao.",
+   desc:"Le 5 symbolise la liberté, le changement et l'aventure. Vous avez soif d'expériences et refusez toute limitation. Vous êtes un agent de mouvement et de transformation.",
+   strengths:"Liberté, adaptabilité, curiosité, polyvalence, charme, vivacité",
+   weaknesses:"Instabilité, impatience, excès, difficulté à s'engager",
+   talents:"Voyages, langues, vente, communication, journalisme",
+   challenges:"S'engager dans la durée, gérer les excès, s'ancrer",
+   advice:"Votre liberté est une force ; sachez aussi vous ancrer. L'engagement choisi libère.",
+   love:"Vous aimez la passion et la nouveauté ; il vous faut un partenaire qui respecte votre liberté.",
+   marriage:"Union complexe : choisissez un partenaire aventureux comme vous.",
+   family:"Vous apportez vie et excitation ; restez présent.",
+   children:"Parent stimulant qui encourage l'exploration et la curiosité.",
+   relations:"Réseau social très étendu ; cultivez quelques amitiés profondes.",
+   work:"Voyages, commerce, politique, journalisme, entertainment, vente.",
+   business:"Excellent commercial et négociateur ; besoin d'un associé stable.",
+   money:"Argent facile à gagner et à dépenser. Apprenez à investir.",
+   career:"Journaliste, commercial, diplomate, artiste, entrepreneur du web",
+   health:"Attention aux excès (alimentation, stimulants). Faites du sport.",
+   spirituality:"Spiritualité comme voyage sans fin : vous trouvez le sens dans l'expérience.",
+   luck:"Jours favorables : mercredi et vendredi. Chiffres : 5, 14, 23.",
+   colors:"Turquoise, vert émeraude, argent",colorHex:["#007AFF","#30B0C7","#34C759"],
+   days:"Mercredi, Vendredi",months:"Mai, Août",years:"Années finissant par 5",
+   professions:"Journaliste, Commercial, Diplomate, Artiste, Entrepreneur web",
+   stone:"Aigue-marine, Turquoise — favorisent voyages et communication",
+   loveCompat:"1, 3, 7",workCompat:"3, 6, 9",
+   quote:"« La liberté, c'est la capacité de choisir. »"},
+ 6:{title_fr:"Le Nourricier",title_mg:"Mpikarakara",icon:"💖",hex:"#FF2D55",
+   kw_fr:"Amour · responsabilité · harmonie",kw_mg:"Fitiavana · andraikitra · firindrana",
+   short_fr:"Gardien de l'harmonie et de la beauté, vous prenez soin des autres avec dévouement.",
+   short_mg:"Mpiaro ny firindrana sy ny hatsarana. Mikarakara ny hafa amim-pitiavana.",
+   desc:"Le 6 est le gardien de l'harmonie domestique et de la beauté. Vous avez une vocation profonde pour prendre soin des autres et créer de la beauté autour de vous.",
+   strengths:"Responsabilité, amour, harmonie, service, sens du beau, loyauté",
+   weaknesses:"Sacrifice excessif, perfectionnisme, tendance à contrôler",
+   talents:"Soins, arts, enseignement, conseil familial, design",
+   challenges:"Prendre soin de soi, poser des limites, accepter l'imperfection",
+   advice:"Vous donnez beaucoup ; nourrissez-vous aussi. La beauté commence en soi.",
+   love:"Vous aimez profondément et idéalisez votre partenaire ; très fidèle.",
+   marriage:"Le mariage est votre vocation : vous créez un foyer magnifique.",
+   family:"La famille est votre raison d'être : parent exceptionnel.",
+   children:"Vous choyez vos enfants avec une attention et un amour rares.",
+   relations:"Vous attirez ceux dans le besoin ; choisissez l'équilibre.",
+   work:"Santé, éducation, arts, conseil, droit de la famille, décoration.",
+   business:"Excellent dans les métiers d'aide : clinique, école, agence de design.",
+   money:"Vous dépensez pour embellir votre cadre. Gérez avec méthode.",
+   career:"Médecin, enseignant, artiste, conseiller conjugal, décorateur",
+   health:"Attention au cœur et à l'équilibre hormonal. Pratiquez l'amour de soi.",
+   spirituality:"Le service aux autres est votre chemin : l'amour est votre religion.",
+   luck:"Jours favorables : vendredi et mardi. Chiffres : 6, 15, 24.",
+   colors:"Rose, vert menthe, indigo, or",colorHex:["#FF2D55","#34C759","#5856D6"],
+   days:"Vendredi, Mardi",months:"Juin, Septembre",years:"Années finissant par 6",
+   professions:"Médecin, Enseignant, Artiste, Conseiller, Décorateur, Thérapeute",
+   stone:"Quartz rose, Émeraude — symbolisent l'amour et la guérison",
+   loveCompat:"2, 4, 8, 9",workCompat:"1, 3, 9",
+   quote:"« L'amour véritable commence par prendre soin de soi. »"},
+ 7:{title_fr:"Le Sage",title_mg:"Hendry",icon:"🔭",hex:"#AF52DE",
+   kw_fr:"Analyse · intuition · spiritualité",kw_mg:"Fandinihana · fahiratana · ara-panahy",
+   short_fr:"Chercheur de vérité, vous avez un intellect aiguisé et une soif de connaissance.",
+   short_mg:"Mpitady fahamarinana. Manana saina maranitra sy hetaheta fahalalana.",
+   desc:"Le 7 est le chercheur de vérité et le mystique. Doté d'un esprit analytique et intuitif, votre vie est un voyage intérieur vers la sagesse et la compréhension profonde.",
+   strengths:"Intelligence, intuition, analyse, profondeur, spiritualité, sagesse",
+   weaknesses:"Isolement, froideur, scepticisme excessif, retrait",
+   talents:"Recherche, philosophie, sciences, analyse, écriture",
+   challenges:"Ouvrir son cœur, faire confiance, s'impliquer socialement",
+   advice:"Votre sagesse est précieuse : partagez-la. Sortez parfois de votre solitude.",
+   love:"Réservé mais profond ; vous cherchez une connexion intellectuelle et spirituelle.",
+   marriage:"Il vous faut un partenaire qui respecte votre besoin de solitude.",
+   family:"Vous êtes le sage de la famille ; exprimez plus vos émotions.",
+   children:"Vous élevez des enfants curieux et indépendants d'esprit.",
+   relations:"Peu d'amis très sélectionnés : la qualité prime sur la quantité.",
+   work:"Recherche, sciences, philosophie, technologie, enseignement.",
+   business:"Excellent dans la connaissance et la technologie.",
+   money:"Peu attaché à l'argent mais bon gestionnaire. Investissez dans le savoir.",
+   career:"Chercheur, philosophe, scientifique, informaticien, professeur",
+   health:"Attention au système nerveux et au surmenage mental. Yoga, respiration.",
+   spirituality:"La spiritualité est au cœur de votre vie : vous cherchez la vérité ultime.",
+   luck:"Jours favorables : dimanche et lundi. Chiffres : 7, 16, 25.",
+   colors:"Violet, indigo, bleu nuit, blanc pur",colorHex:["#AF52DE","#5856D6","#1E40AF"],
+   days:"Dimanche, Lundi",months:"Juillet, Avril",years:"Années finissant par 7",
+   professions:"Chercheur, Philosophe, Scientifique, Professeur, Analyste",
+   stone:"Améthyste, Saphir — éveillent intuition et sagesse",
+   loveCompat:"3, 5, 9",workCompat:"1, 4, 8",
+   quote:"« La connaissance de soi est le début de toute sagesse. »"},
+ 8:{title_fr:"Le Bâtisseur de Pouvoir",title_mg:"Tompon'ny hery",icon:"💎",hex:"#1F2937",
+   kw_fr:"Ambition · réussite · pouvoir",kw_mg:"Hetaheta · fahombiazana · hery",
+   short_fr:"Ambitieux et efficace, vous êtes fait pour l'accomplissement matériel et le succès.",
+   short_mg:"Be hetaheta sy mahomby. Voaomana ho amin'ny fahombiazana ara-materialy.",
+   desc:"Le 8 est le nombre du pouvoir matériel et de l'accomplissement. Doté d'une ambition remarquable, vous avez une capacité naturelle à atteindre le succès, la prospérité et l'autorité.",
+   strengths:"Ambition, organisation, efficacité, endurance, autorité, réussite",
+   weaknesses:"Matérialisme, autoritarisme, difficulté à déléguer, workaholisme",
+   talents:"Finance, business, gestion, justice, immobilier",
+   challenges:"Équilibre vie-travail, humilité, partage",
+   advice:"Votre pouvoir de manifestation est immense : servez-en le bien commun. L'argent est un outil.",
+   love:"Passionné et fort ; vous cherchez un partenaire ambitieux et indépendant.",
+   marriage:"Une union entre égaux : vous respectez la force et l'autonomie.",
+   family:"Vous pourvoyez matériellement ; priorisez aussi le temps en famille.",
+   children:"Vous préparez vos enfants au succès ; transmettez aussi les valeurs humaines.",
+   relations:"Vous choisissez vos relations avec soin ; généreux avec vos proches.",
+   work:"Finance, affaires, immobilier, droit, direction de grande envergure.",
+   business:"Né pour diriger de grandes entreprises et de grandes affaires.",
+   money:"Relation intense à l'argent : grandes fortunes possibles, prudence sur les excès.",
+   career:"PDG, banquier, avocat, directeur financier, promoteur immobilier",
+   health:"Attention au surmenage et au cœur. Équilibrez effort et repos.",
+   spirituality:"Votre défi : allier pouvoir matériel et richesse intérieure.",
+   luck:"Jours favorables : samedi et jeudi. Chiffres : 8, 17, 26.",
+   colors:"Noir, or, bordeaux, gris acier",colorHex:["#1F2937","#FF9500","#7C3AED"],
+   days:"Samedi, Jeudi",months:"Août, Novembre",years:"Années finissant par 8",
+   professions:"PDG, Banquier, Avocat, Directeur financier, Promoteur",
+   stone:"Onyx, Saphir — symbolisent pouvoir et protection",
+   loveCompat:"2, 4, 6",workCompat:"2, 3, 7",
+   quote:"« Ce n'est pas le pouvoir qui corrompt, mais la peur de le perdre. »"},
+ 9:{title_fr:"L'Humaniste",title_mg:"Mpitia ny olombelona",icon:"🌟",hex:"#00C7BE",
+   kw_fr:"Compassion · sagesse · universalité",kw_mg:"Fangorahana · fahendrena · maneran-tany",
+   short_fr:"Humaniste universel, vous embrassez le monde avec compassion. Vous êtes né pour servir.",
+   short_mg:"Mpitia ny olombelona. Mamihina an'izao tontolo izao amim-pangorahana ianao.",
+   desc:"Le 9 est la culmination du cycle, l'humaniste universel. Vous avez une vision large et une compassion qui embrasse toute l'humanité. Votre vocation est de servir un idéal.",
+   strengths:"Humanisme, compassion, sagesse, générosité, créativité, charisme",
+   weaknesses:"Idéalisme excessif, difficulté à finir, sacrifice, désillusion",
+   talents:"Arts, humanitaire, soins, enseignement, philosophie",
+   challenges:"Accepter les limites humaines, finir, lâcher prise",
+   advice:"Votre compassion est votre force ; protégez-vous tout en donnant. Le don sage nourrit le donneur.",
+   love:"Vous aimez universellement mais peinez à vous fixer ; vous idéalisez.",
+   marriage:"L'union doit avoir un sens plus grand, un projet au service du monde.",
+   family:"Vous portez la famille avec amour ; apprenez à recevoir autant qu'à donner.",
+   children:"Vous transmettez une vision du monde large et humaniste.",
+   relations:"Tout le monde vous apprécie ; choisissez des relations qui vous élèvent.",
+   work:"Art, humanitaire, enseignement, médecine, conseil, spiritualité.",
+   business:"Vos meilleures affaires servent un idéal : ONG, fondations, arts.",
+   money:"L'argent vient et repart ; apprenez à conserver.",
+   career:"Artiste, humanitaire, philosophe, thérapeute, guide, professeur",
+   health:"Attention à l'épuisement par sur-don. Protégez votre énergie.",
+   spirituality:"Profondément spirituel : votre vie est un acte d'amour universel.",
+   luck:"Jours favorables : mardi et jeudi. Chiffres : 9, 18, 27.",
+   colors:"Or, blanc, couleurs de l'arc-en-ciel",colorHex:["#FF9500","#00C7BE","#FF2D55"],
+   days:"Mardi, Jeudi",months:"Septembre, Décembre",years:"Années finissant par 9",
+   professions:"Artiste, Humanitaire, Philosophe, Thérapeute, Guide, Professeur",
+   stone:"Opale, Grenat — symbolisent compassion et sagesse universelle",
+   loveCompat:"3, 6, 7",workCompat:"1, 5, 6",
+   quote:"« Soyez l'amour que vous souhaitez voir dans le monde. »"},
+ 11:{title_fr:"Le Visionnaire (Maître 11)",title_mg:"Mpahita (Master 11)",icon:"⚡",hex:"#FFCC00",
+   kw_fr:"Intuition · inspiration · illumination",kw_mg:"Fahiratana · aingam-panahy · fanazavana",
+   short_fr:"Canal d'intuition supérieure, vous portez une mission spirituelle d'inspiration.",
+   short_mg:"Fantsom-pahiratana avo. Mitondra iraka ara-panahy manentana ianao.",
+   desc:"Le Maître Nombre 11 est le canal de l'intuition divine. Vous possédez une sensibilité extraordinaire et une mission d'inspiration. Vous êtes ici pour illuminer et élever ceux qui vous entourent.",
+   strengths:"Intuition supérieure, vision, inspiration, charisme spirituel",
+   weaknesses:"Anxiété, hypersensibilité, difficulté à s'ancrer",
+   talents:"Arts inspirés, enseignement spirituel, guérison, leadership charismatique",
+   challenges:"Ancrage matériel, gestion de la sensibilité, équilibre",
+   advice:"Votre connexion au subtil est un trésor : canalisez-la sans vous épuiser.",
+   love:"Vous aimez avec une intensité rare ; vous cherchez une âme sœur véritable.",
+   marriage:"L'union doit être spirituelle : rien de moins ne vous convient.",
+   family:"Vous portez souvent les rêves et aspirations de votre famille.",
+   children:"Vous élevez des enfants sensibles, intuitifs et créatifs.",
+   relations:"Vous attirez ceux en quête de lumière ; soyez un phare, pas un martyr.",
+   work:"Arts, spiritualité, psychologie, musique, enseignement inspirant.",
+   business:"Excellent visionnaire ; besoin d'un associé pragmatique.",
+   money:"L'argent suit votre mission : concentrez-vous sur votre vocation.",
+   career:"Guide, artiste, thérapeute, enseignant inspirant, communicant",
+   health:"Très sensible aux énergies ; protégez votre équilibre nerveux.",
+   spirituality:"Connexion directe au sens profond : développez vos dons.",
+   luck:"Jours favorables : lundi et vendredi. Chiffres : 11, 2, 20.",
+   colors:"Blanc, argent, violet éthéré, or",colorHex:["#FFCC00","#AF52DE","#5856D6"],
+   days:"Lundi, Vendredi",months:"Novembre, Février",years:"2011, 2020, 2029",
+   professions:"Guide, Artiste, Thérapeute, Enseignant inspirant, Coach",
+   stone:"Sélénite, Labradorite — canalisent l'intuition et protègent",
+   loveCompat:"2, 6, 9",workCompat:"2, 4, 6",
+   quote:"« Vous êtes la lumière qui éclaire le chemin des autres. »"},
+ 22:{title_fr:"Le Maître Bâtisseur (Maître 22)",title_mg:"Mpanorina lehibe (Master 22)",icon:"🏛️",hex:"#FF3B30",
+   kw_fr:"Vision · réalisation · grandeur",kw_mg:"Fahitana · fanatanterahana · halehibiazana",
+   short_fr:"Le plus puissant des nombres : vous pouvez réaliser de grandes choses pour le monde.",
+   short_mg:"Ny mahery indrindra amin'ny isa : afaka manatanteraka zavatra lehibe ianao.",
+   desc:"Le Maître Nombre 22 est le plus puissant de la numérologie. Vous avez le potentiel de bâtir l'impossible et de réaliser de grandes choses pour l'humanité. Visionnaire et pragmatique à la fois.",
+   strengths:"Visionnaire pratique, organisation suprême, endurance, leadership",
+   weaknesses:"Perfectionnisme paralysant, pression, peur de l'échec",
+   talents:"Créer de grandes structures, réaliser des rêves collectifs",
+   challenges:"Oser à la mesure de son potentiel, gérer la pression",
+   advice:"Votre mission est immense : commencez par un pas. Chaque grand voyage commence ainsi.",
+   love:"Vous cherchez un partenaire qui comprend votre mission exceptionnelle.",
+   marriage:"L'union soutient votre vision : un partenaire qui croit en vous.",
+   family:"Vous portez une vision familiale sur plusieurs générations.",
+   children:"Vous élevez vos enfants avec une conscience du monde élargie.",
+   relations:"Peu de relations mais très puissantes ; vous attirez l'exceptionnel.",
+   work:"Grandes structures, organisations, inventions, projets d'envergure.",
+   business:"Capable de créer des entreprises qui transforment leur secteur.",
+   money:"L'argent sert votre mission : vous pouvez créer d'immenses richesses.",
+   career:"Architecte, dirigeant, inventeur, fondateur, bâtisseur de projets",
+   health:"La pression du 22 épuise : prenez soin de vous d'abord.",
+   spirituality:"Spiritualité de la manifestation : rendre le monde meilleur concrètement.",
+   luck:"Jours favorables : samedi et jeudi. Chiffres : 22, 4, 8.",
+   colors:"Bordeaux, or massif, noir profond",colorHex:["#FF3B30","#FF9500","#1F2937"],
+   days:"Samedi, Jeudi",months:"Avril, Août",years:"2002, 2011, 2020",
+   professions:"Architecte, Dirigeant, Inventeur, Fondateur, Chef de grands projets",
+   stone:"Diamant, Grenat — amplifient le pouvoir de réalisation",
+   loveCompat:"4, 6, 8",workCompat:"1, 4, 8",
+   quote:"« Vous n'avez pas à voir tout l'escalier ; faites juste le premier pas. »"},
+ 33:{title_fr:"Le Maître Enseignant (Maître 33)",title_mg:"Mpampianatra lehibe (Master 33)",icon:"👼",hex:"#FF2D55",
+   kw_fr:"Amour · guérison · enseignement",kw_mg:"Fitiavana · fanasitranana · fampianarana",
+   short_fr:"Maître de la compassion, vous enseignez l'amour inconditionnel par l'exemple.",
+   short_mg:"Tompon'ny fangorahana. Mampianatra ny fitiavana tsy misy fepetra ianao.",
+   desc:"Le Maître Nombre 33 est le Maître de la compassion. Vous êtes ici pour enseigner l'amour inconditionnel et guérir le monde par votre exemple. La plus haute vibration de service.",
+   strengths:"Compassion universelle, sagesse, don d'enseignement, guérison",
+   weaknesses:"Perfectionnisme, sacrifice de soi, poids des responsabilités",
+   talents:"Enseigner l'amour, guérison spirituelle, arts, charisme profond",
+   challenges:"Vivre sa mission sans se perdre, accepter ses limites",
+   advice:"Votre amour est immense : aimez-vous d'abord pour pouvoir aimer le monde.",
+   love:"Votre amour transcende l'individu ; vous aimez avec une profondeur rare.",
+   marriage:"L'union est un acte d'amour en action, une union sacrée.",
+   family:"La famille se réconcilie et se retrouve autour de vous.",
+   children:"Vos enfants héritent d'une sagesse et d'une compassion rares.",
+   relations:"Tout le monde ressent votre bienveillance ; entourez-vous de qui vous élève.",
+   work:"Enseignement, arts, médecine holistique, leadership bienveillant.",
+   business:"Vos meilleures affaires servent l'élévation humaine.",
+   money:"L'abondance vient pour servir votre mission.",
+   career:"Enseignant, guérisseur, artiste inspiré, guide, éducateur",
+   health:"Votre santé suit votre niveau d'amour de soi : prenez soin de vous.",
+   spirituality:"Incarnation vivante de l'amour bienveillant : c'est votre nature.",
+   luck:"Jours favorables : vendredi et dimanche. Chiffres : 33, 6, 9.",
+   colors:"Rose tendre, blanc, or",colorHex:["#FF2D55","#F9A8D4","#FF9500"],
+   days:"Vendredi, Dimanche",months:"Juin, Mars",years:"2013, 2022, 2031",
+   professions:"Enseignant, Guérisseur, Artiste, Guide, Éducateur, Coach de vie",
+   stone:"Quartz rose, Kunzite — canalisent l'amour inconditionnel",
+   loveCompat:"6, 9, 11",workCompat:"6, 9, 22",
+   quote:"« Aimer est la seule chose qui grandit lorsqu'on la partage. »"}
+};
+function ND(n){return NUM[n]||NUM[reduce(n,false)]||NUM[1];}
+function numColor(n){return ND(n).hex;}
+
+/* énergie d'un jour / année universel(le) — courtes descriptions */
+const UNIV={
+ 1:{fr:"Élan, nouveaux départs, initiatives et leadership. Idéal pour lancer.",mg:"Fanombohana vaovao, fandraisana andraikitra. Tsara amin'ny fanombohana."},
+ 2:{fr:"Coopération, patience, diplomatie et relations. Jour d'accords et d'écoute.",mg:"Fiaraha-miasa, faharetana, fifanarahana. Andro fifanekena."},
+ 3:{fr:"Créativité, communication, joie et expression. Jour social et festif.",mg:"Famoronana, fifandraisana, hafaliana. Andro maha-sosialy."},
+ 4:{fr:"Travail, structure, organisation et sérieux. Jour de fondations solides.",mg:"Asa, firafitra, fandaminana. Andro fanorenana mafy."},
+ 5:{fr:"Changement, mouvement, liberté et imprévu. Jour dynamique et flexible.",mg:"Fiovana, fihetsika, fahalalahana. Andro mavitrika."},
+ 6:{fr:"Amour, famille, responsabilité et harmonie. Jour du foyer et du soin.",mg:"Fitiavana, fianakaviana, andraikitra. Andro fikarakarana."},
+ 7:{fr:"Réflexion, analyse, spiritualité et retrait. Jour d'introspection.",mg:"Fandinihana, ara-panahy, fitokanana. Andro fisaintsainana."},
+ 8:{fr:"Pouvoir, business, argent et efficacité. Jour des grandes décisions.",mg:"Hery, fandraharahana, vola. Andro fanapahan-kevitra lehibe."},
+ 9:{fr:"Accomplissement, clôture, compassion et bilan. Jour de fin de cycle.",mg:"Fahavitana, famaranana, fangorahana. Andro fifaranan'ny tsingerina."},
+ 11:{fr:"Inspiration, intuition, éveil spirituel. Jour de vision et de signes.",mg:"Aingam-panahy, fahiratana. Andro fahitana sy famantarana."},
+ 22:{fr:"Grande réalisation, projets d'envergure. Jour de construction majeure.",mg:"Fanatanterahana lehibe. Andro fanorenana goavana."},
+ 33:{fr:"Amour universel, enseignement, guérison collective. Jour de service.",mg:"Fitiavana maneran-tany, fampianarana. Andro fanompoana."}
+};
+
+/* pierres/leçons karmiques rapides */
+const DEBT_TXT={
+ 13:"Dette du travail : une paresse passée à racheter. Le travail assidu vous libère.",
+ 14:"Dette de la liberté : des excès passés. L'ordre et la modération vous libèrent.",
+ 16:"Dette de l'humilité : un orgueil passé. Renaître après avoir accepté de tomber.",
+ 19:"Dette du pouvoir : un abus d'autorité passé. Servir humblement les autres."
+};
+const LESSON_TXT={
+ 1:"Développer la confiance en soi et l'initiative.",
+ 2:"Développer la sensibilité et la coopération.",
+ 3:"Développer la créativité et l'expression.",
+ 4:"Développer la discipline et le sens du travail.",
+ 5:"Développer l'adaptabilité et l'ouverture au changement.",
+ 6:"Développer la responsabilité et l'amour du foyer.",
+ 7:"Développer la profondeur et l'introspection.",
+ 8:"Développer le sens des affaires et la gestion.",
+ 9:"Développer la compassion et l'ouverture au monde."
+};
+const CHAL_TXT={
+ 0:"Le grand défi : tout maîtriser avec équilibre.",
+ 1:"Affirmer son identité sans écraser les autres.",
+ 2:"Vaincre l'indécision et la dépendance affective.",
+ 3:"Se discipliner et ne pas s'éparpiller.",
+ 4:"Assouplir sa rigidité, accepter le changement.",
+ 5:"Maîtriser l'instabilité et les excès.",
+ 6:"Lâcher le perfectionnisme et le sacrifice.",
+ 7:"Sortir de la solitude et de la méfiance.",
+ 8:"Gérer le pouvoir et l'argent sans excès."
+};
+const PLANE_TXT={
+ physical:"Ancré, pratique, orienté vers le concret et l'action.",
+ mental:"Analytique, réfléchi, à l'aise avec les idées et la logique.",
+ emotional:"Guidé par le cœur, l'intuition et les émotions.",
+ intuitive:"Connecté au subtil, à l'inspiration et au sens caché."
+};
+
+/* ============================================================
+   TRADUCTIONS MALAGASY des interprétations (mode PRO)
+   NUM_MG[n] surcharge les champs FR de NUM[n] quand LANG==='mg'
+   ============================================================ */
+const NUM_MG={
+ 1:{desc:"Ny 1 dia mariky ny fanombohana, ny fahaleovan-tena ary ny sitrapo mamorona. Voaomana ho mpitarika, mpanavao sy mpandray andraikitra ianao. Ny herinao dia ny fahafahana manomboka izay tsy sahin'ny hafa.",
+   strengths:"Fitarihana, fahaleovan-tena, herim-po, maha-vaovao, faharisihana, hetaheta, fahatokisan-tena",
+   weaknesses:"Fitiavan-tena, tsy fahandriana, fahamafisan-doha, sarotra iaraha-miasa",
+   talents:"Manavao, mandraharaha, manapa-kevitra, manokatra lalana vaovao",
+   challenges:"Mianatra miara-miasa sy manetry tena, misoroka ny fitokana-monina",
+   advice:"Hatsaraovy ny fitarihanao nefa mihainoa hatrany. Ny herinao dia ny fandraisana andraikitra — fenoy faharetana.",
+   love:"Be fitiavana sady mahaleo tena; mila mpiara-belona mankamamy anao sady manaja ny fahalalahanao.",
+   marriage:"Vady mahatoky nefa mila habaka. Tsy maintsy mitahiry ny fahaleovan-tenanao ny mpivady.",
+   family:"Matetika andry iankinan'ny fianakaviana, indraindray be didy. Mianara mizara andraikitra.",
+   children:"Ray aman-dreny miaro; aza terena hanaraka ny hetahetanao ny zanakao.",
+   relations:"Manintona an'izay mitady mpitarika ianao; tandremo ny fifandraisana tsy mifandanja.",
+   work:"Mahay amin'ny fitantanana, fandraharahana, politika na famoronana.",
+   business:"Voaomana handraharaha sy hitarika. Miaraha amin'ny 2 na 6 mba hifandanja.",
+   money:"Manana talenta hahazo vola, saingy mora mandany ho an'ny laza.",
+   career:"Talen'orinasa, mpandraharaha, tale, mpamorona, mpanakanto, atleta ambony",
+   health:"Tandremo ny tosidra avo sy ny fihenjanana vokatry ny adin-tsaina. Misaintsaina.",
+   spirituality:"Lalan'ny herim-po sy ny famoronana: eto ianao mba haneho zavatra.",
+   luck:"Andro mahasoa: Alatsinainy sy Alahady. Isa: 1, 10, 19, 28.",
+   colors:"Mena mangatsakatsaka, volamena, mavo masoandro",days:"Alatsinainy, Alahady",
+   months:"Janoary, Oktobra",years:"Taona mifarana amin'ny 1",
+   professions:"Talen'orinasa, Mpandraharaha, Tale, Mpamorona, Atleta, Lehiben'ny tetikasa",
+   stone:"Robisa, Grenà mena — mampitombo ny herin'aina sy ny fitarihana",
+   quote:"« Ny dingana voalohany no sarotra indrindra, saingy izy ihany no manan-danja. »"},
+ 2:{desc:"Ny 2 dia maneho ny firindrana, ny fiaraha-miasa ary ny fahamorana. Manana fahiratan-tsaina miavaka ianao ka mahay mampihavana sy miara-dia. Mandroso amin'ny hakanto fa tsy amin'ny hery.",
+   strengths:"Fampihavanana, fahamorana, fahiratan-tsaina, faharetana, fangorahana, tsy fivadihana",
+   weaknesses:"Tsy fahasahiana manapaka, fiankinan-doha ara-pihetseham-po, saro-piaro, tahotra ny ady",
+   talents:"Fampihavanana, kanto, mozika, torohevitra, fikarakarana, fiaraha-miombon'antoka",
+   challenges:"Mahay manambara ny tenanao, manapa-kevitra, mandresy ny tahotra ny fandavana",
+   advice:"Matokia ny fahiratan-tsainao; mianara mandà amim-pitiavana.",
+   love:"Mpiara-belona feno fitiavana sy tsy mivadika; be fanomezana amin'ny fitiavana.",
+   marriage:"Zava-dehibe ho anao ny fanambadiana: vady tena mifikitra.",
+   family:"Mamorona tokantrano mafana sy mirindra ianao. Aloha ny fianakaviana.",
+   children:"Ray aman-dreny malemy fanahy sy mahiratra, mailo amin'ny fihetseham-pon'ny zanaka.",
+   relations:"Mamorona fifandraisana lalina; hialao ny fifandraisana mandratra.",
+   work:"Diplaomasia, torohevitra, kanto, fikarakarana, fampianarana.",
+   business:"Tena mahay amin'ny fiaraha-miombon'antoka; aza mitantana irery.",
+   money:"Mora mandany ho an'ny hafa. Mianara mifehy ny volanao.",
+   career:"Mpampihavana, therapeuta, mpitendry, mpampianatra, psikология, diplaomaty",
+   health:"Marefo amin'ny fitsdrana sy ny fihetseham-po. Fehezo ny adin-tsaina.",
+   spirituality:"Lalan'ny fitiavana sy ny fanasitranana: manana fanomezam-pahasoavana mampitony ianao.",
+   luck:"Andro mahasoa: Alatsinainy sy Zoma. Isa: 2, 11, 20, 29.",
+   colors:"Fotsy, volafotsy, manga mangatsaka, mavokely",days:"Alatsinainy, Zoma",
+   months:"Febroary, Novambra",years:"Taona mifarana amin'ny 2",
+   professions:"Therapeuta, Mpitendry, Mpampianatra, Mpampihavana, Diplaomaty, Mpitsabo mpanampy",
+   stone:"Vato-bolana, Perla — mampitombo ny fahiratana sy ny firindrana",
+   quote:"« Avy amin'ny fampihavanana ny fahasamihafana no iavian'ny firindrana. »"},
+ 3:{desc:"Ny 3 dia mamirapiratra hafaliana, famoronana ary fanehoana. Manana fanomezam-pahasoavana amin'ny fifandraisana sy ny kanto ianao. Ny fisianao dia manazava sy manentana ny manodidina.",
+   strengths:"Famoronana, fahatokiana, hatsaram-panahy, fanehoana, hatsikana, fihavanana",
+   weaknesses:"Fielezana, fanaovana ambony ambany, tsy fahampian-pifehezana, fandaniana",
+   talents:"Kanto, fanoratana, fampisehoana, lamaody, sakafo, fifandraisana",
+   challenges:"Mifehy tena sy mifantoka, misoroka ny fielezan-tsaina",
+   advice:"Ampifantoho amin'ny tetikasa vitsy ny herim-pamoronanao. Mila tsy fiovaovana ny talenta.",
+   love:"Mora manintona; mitady mpiara-belona mizara ny hafaliam-piainana.",
+   marriage:"Miroborobo ny mpivady rehefa manana mpiara-belona manentana ara-tsaina.",
+   family:"Mamorona toe-piainana falifaly sy misy hafaliana. Ray aman-dreny be famoronana.",
+   children:"Manentana ny nofinofin'ny zanakao sy manome fahatokisana azy ireo.",
+   relations:"Malaza be, maro namana; hatsaraovy ny fisakaizana lalina.",
+   work:"Kanto, media, fifandraisana, lamaody, dokambarotra, sakafo.",
+   business:"Tena mahay mifandray sy mivarotra; mila mpiara-miombon'antoka mpitantana.",
+   money:"Mora mandany amin'ny fahafinaretana. Mianara mitahiry.",
+   career:"Mpanakanto, mpanoratra, mpilalao, mpamorona, mpanao dokambarotra, mpahandro",
+   health:"Marefo ny tenda sy ny hoditra. Avoahy ny fihetseham-ponao.",
+   spirituality:"Ara-panahy amin'ny alalan'ny famoronana sy ny hafaliana: fantsona ianao.",
+   luck:"Andro mahasoa: Alarobia sy Zoma. Isa: 3, 12, 21, 30.",
+   colors:"Mavo, volomboasary, volomparasy mazava, volamena",days:"Alarobia, Zoma",
+   months:"Martsa, Desambra",years:"Taona mifarana amin'ny 3",
+   professions:"Mpanakanto, Mpilalao, Mpanoratra, Mpamorona, Mpanao dokambarotra, Mpahandro",
+   stone:"Sitrina, Topaza mavo — mampitombo ny famoronana sy ny fahatokiana",
+   quote:"« Ny famoronana dia ny faharanitan-tsaina milalao. »"},
+ 4:{desc:"Ny 4 dia maneho ny fahamarinana, ny asa ary ny fanorenana. Voafehy sy azo antoka, ianao no fototra iankinan'ny hafa. Manorina amim-paharetana izay maharitra ianao.",
+   strengths:"Fifehezana, fahamarinan-toerana, hatsaram-panahy, faharetana, saina mahay, fandaminana",
+   weaknesses:"Hamafisana, fanoherana ny fiovana, asa be loatra, tsy fahasahiana",
+   talents:"Fanorenana, injeniera, fandaminana, asa tanana, fitantanana",
+   challenges:"Manaiky ny fiovana sy ny fanalefahana, mamela ny zavatra handeha",
+   advice:"Ny herinao dia ny faharetana. Avelao ny tenanao indraindray hanao zavatra tsy nomanina.",
+   love:"Tsy mivadika sy marin-toerana, tsy dia romantika; asehon'ny asa ny fitiavany.",
+   marriage:"Vady tsara: manorina fiainana azo antoka sy milamina.",
+   family:"Ray aman-dreny modely manome fahamarinan-toerana sy fiarovana.",
+   children:"Mampianatra fifehezana sy soatoavina; misokafa amin'ny famoronan'izy ireo.",
+   relations:"Namana vitsy fa tena mahatoky; ianao no andry iankinan'ny fiaraha-monina.",
+   work:"Injeniera, vola, fambolena, fanorenana, kaonty, informatika.",
+   business:"Mpitantana mahay: manorina orinasa maharitra.",
+   money:"Mitsitsy sy malina: mahay mitahiry sy mampiasa vola amin'ny lavitr'ezaka.",
+   career:"Injeniera, mpitan-kaonty, mpanao mari-trano, mpamboly, informatisianina, mpitantana",
+   health:"Tandremo ny taolana sy ny tonon-taolana. Mihetsiketseha matetika.",
+   spirituality:"Ara-panahy azo ampiharina: manompo amin'ny asa vita tsara.",
+   luck:"Andro mahasoa: Sabotsy sy Alakamisy. Isa: 4, 13, 22, 31.",
+   colors:"Maitso ala, volontany, volomparasy vato",days:"Sabotsy, Alakamisy",
+   months:"Aprily, Janoary",years:"Taona mifarana amin'ny 4",
+   professions:"Injeniera, Mpitan-kaonty, Mpanao mari-trano, Mpamboly, Informatisianina",
+   stone:"Emeraoda, Jade — mariky ny fitomboana sy ny fahamarinan-toerana",
+   quote:"« Manorena eo ambony vato, fa tsy eo ambony fasika. »"},
+ 5:{desc:"Ny 5 dia maneho ny fahalalahana, ny fiovana ary ny fitsangatsanganana. Mangetaheta traikefa ianao ka mandà ny fameperana rehetra. Mpanentana fihetsika sy fanovana ianao.",
+   strengths:"Fahalalahana, fahaizana miova, fahalianana, fahaiza-mankany, hatsaram-panahy, hafanam-po",
+   weaknesses:"Tsy fahamarinan-toerana, tsy fahandriana, fanaovana tafahoatra, sarotra mifanaiky",
+   talents:"Dia, fiteny, varotra, fifandraisana, gazety",
+   challenges:"Mifikitra amin'ny lavitr'ezaka, mifehy ny tafahoatra, mifototra",
+   advice:"Hery ny fahalalahanao; mahaiza koa mifototra. Ny fanoloran-tena voafidy no manafaka.",
+   love:"Tia ny firehetana sy ny vaovao; mila mpiara-belona manaja ny fahalalahanao.",
+   marriage:"Sarotra ny firaisana: mifidiana mpiara-belona tia fitsangatsanganana toa anao.",
+   family:"Mitondra aina sy fientanam-po; mijanona eo hatrany.",
+   children:"Ray aman-dreny manentana ny fikarohana sy ny fahalianana.",
+   relations:"Tambajotra sosialy midadasika; hatsaraovy ny fisakaizana lalina vitsivitsy.",
+   work:"Dia, varotra, politika, gazety, fialamboly, fivarotana.",
+   business:"Mpivarotra sy mpifampiraharaha mahay; mila mpiara-miombon'antoka marin-toerana.",
+   money:"Mora azo, mora lany. Mianara mampiasa vola.",
+   career:"Mpanao gazety, mpivarotra, diplaomaty, mpanakanto, mpandraharaha aterineto",
+   health:"Tandremo ny tafahoatra (sakafo, zava-mahadomelina). Manaova fanatanjahantena.",
+   spirituality:"Ara-panahy toy ny dia tsy mifarana: mahita heviny amin'ny traikefa ianao.",
+   luck:"Andro mahasoa: Alarobia sy Zoma. Isa: 5, 14, 23.",
+   colors:"Manga torkoazy, maitso emeraoda, volafotsy",days:"Alarobia, Zoma",
+   months:"Mey, Aogositra",years:"Taona mifarana amin'ny 5",
+   professions:"Mpanao gazety, Mpivarotra, Diplaomaty, Mpanakanto, Mpandraharaha aterineto",
+   stone:"Aigue-marine, Torkoazy — manampy ny dia sy ny fifandraisana",
+   quote:"« Ny fahalalahana dia ny fahafahana mifidy. »"},
+ 6:{desc:"Ny 6 dia mpiaro ny firindran'ny tokantrano sy ny hatsarana. Manana antso lalina hikarakara ny hafa sy hamorona hatsarana ianao. Manomboka ao anatinao ny hatsarana.",
+   strengths:"Andraikitra, fitiavana, firindrana, fanompoana, saina mahatsara, tsy fivadihana",
+   weaknesses:"Fanaovana sorona tafahoatra, fitadiavana lavorary, filana mifehy",
+   talents:"Fikarakarana, kanto, fampianarana, torohevitra ho an'ny fianakaviana, haingo",
+   challenges:"Mikarakara ny tena, mametra fetra, manaiky ny tsy fahalavorariana",
+   advice:"Manome betsaka ianao; velomy koa ny tenanao. Manomboka amin'ny tena ny hatsarana.",
+   love:"Tia lalina sy manandratra ny mpiara-belona; tena tsy mivadika.",
+   marriage:"Antso ho anao ny fanambadiana: mamorona tokantrano tsara tarehy.",
+   family:"Ny fianakaviana no antom-piainanao: ray aman-dreny miavaka.",
+   children:"Mikarakara ny zanakao amim-pitiavana sy fitandremana miavaka.",
+   relations:"Manintona an'izay sahirana; mifidiana fifandraisana mifandanja.",
+   work:"Fahasalamana, fanabeazana, kanto, torohevitra, lalàna ho an'ny fianakaviana, haingo.",
+   business:"Mahay amin'ny asa fanampiana: toeram-pitsaboana, sekoly, orinasan-tsary.",
+   money:"Mandany hanatsarana ny manodidina. Tantano amim-pomba.",
+   career:"Dokotera, mpampianatra, mpanakanto, mpanolotsaina, mpandravaka, therapeuta",
+   health:"Tandremo ny fo sy ny fifandanjan'ny hormonina. Tiava tena.",
+   spirituality:"Ny fanompoana ny hafa no lalanao: ny fitiavana no fivavahanao.",
+   luck:"Andro mahasoa: Zoma sy Talata. Isa: 6, 15, 24.",
+   colors:"Mavokely, maitso solila, indigo, volamena",days:"Zoma, Talata",
+   months:"Jona, Septambra",years:"Taona mifarana amin'ny 6",
+   professions:"Dokotera, Mpampianatra, Mpanakanto, Mpanolotsaina, Mpandravaka, Therapeuta",
+   stone:"Kuartsa mavokely, Emeraoda — mariky ny fitiavana sy ny fanasitranana",
+   quote:"« Ny tena fitiavana dia manomboka amin'ny fikarakarana ny tena. »"},
+ 7:{desc:"Ny 7 dia mpitady fahamarinana sy mistika. Manana saina mandinika sy mahiratra ianao. Dia anaty mankany amin'ny fahendrena sy ny fahatakarana lalina ny fiainanao.",
+   strengths:"Faharanitan-tsaina, fahiratana, fandinihana, halalinana, ara-panahy, fahendrena",
+   weaknesses:"Fitokana-monina, fangatsiahana, fisalasalana tafahoatra, fihatahana",
+   talents:"Fikarohana, filozofia, siansa, fandinihana, fanoratana",
+   challenges:"Manokatra ny fo, matoky ny hafa, mandray anjara ara-tsosialy",
+   advice:"Sarobidy ny fahendrenao: zarao izany. Mivoaha indraindray amin'ny fitokana-monina.",
+   love:"Mihatsindrindra fa lalina; mitady fifandraisana ara-tsaina sy ara-panahy.",
+   marriage:"Mila mpiara-belona manaja ny filanao mitokana ianao.",
+   family:"Ianao no hendry ao an-tokantrano; avoahy bebe kokoa ny fihetseham-ponao.",
+   children:"Mitaiza zaza liana sy mahaleo tena an-tsaina.",
+   relations:"Namana vitsy voafantina: aleo tsara toy izay maro.",
+   work:"Fikarohana, siansa, filozofia, teknolojia, fampianarana.",
+   business:"Mahay amin'ny fahalalana sy ny teknolojia.",
+   money:"Tsy be firaiketam-po amin'ny vola fa mpitantana mahay. Ampiasao amin'ny fianarana.",
+   health:"Tandremo ny rafi-pitsirika sy ny asa an-tsaina be loatra. Yoga, fofonaina.",
+   spirituality:"Ao afovoan'ny fiainanao ny ara-panahy: mitady ny fahamarinana ambony indrindra.",
+   luck:"Andro mahasoa: Alahady sy Alatsinainy. Isa: 7, 16, 25.",
+   colors:"Volomparasy, indigo, manga alina, fotsy madio",days:"Alahady, Alatsinainy",
+   months:"Jolay, Aprily",years:"Taona mifarana amin'ny 7",
+   professions:"Mpikaroka, Filozofa, Mpahay siansa, Mpampianatra, Mpandinika",
+   stone:"Ametista, Safira — mamoha ny fahiratana sy ny fahendrena",
+   quote:"« Ny fahalalana ny tena no fiandohan'ny fahendrena rehetra. »"},
+ 8:{desc:"Ny 8 dia isan'ny hery ara-materialy sy ny fahombiazana. Manana hetaheta miavaka ianao ary manana fahaizana mahazo fahombiazana, harena sy fahefana.",
+   strengths:"Hetaheta, fandaminana, fahombiazana, faharetana, fahefana, fandresena",
+   weaknesses:"Firaiketam-po amin'ny harena, fahamafisana, sarotra mizara asa, asa be loatra",
+   talents:"Vola, fandraharahana, fitantanana, fitsarana, trano fonenana",
+   challenges:"Fifandanjan'ny fiainana sy asa, fanetren-tena, fizarana",
+   advice:"Lehibe ny herim-panehoanao: ampiasao ho tombontsoa iombonana. Fitaovana ny vola.",
+   love:"Mafana fo sy matanjaka; mitady mpiara-belona be hetaheta sy mahaleo tena.",
+   marriage:"Firaisana mitovy: manaja ny hery sy ny fahaleovan-tena.",
+   family:"Manome ara-materialy; ataovy laharam-pahamehana koa ny fotoana miaraka.",
+   children:"Manomana ny zanakao ho amin'ny fahombiazana; ampitao koa ny soatoavina.",
+   relations:"Mifidy fifandraisana amim-pitandremana; malala-tanana amin'ny akaiky.",
+   work:"Vola, fandraharahana, trano fonenana, lalàna, fitantanana lehibe.",
+   business:"Voaomana hitantana orinasa lehibe sy raharaha lehibe.",
+   money:"Fifandraisana matanjaka amin'ny vola: azo ny harena be, malina amin'ny tafahoatra.",
+   career:"Talen'orinasa, banky, mpisolovava, tale ara-bola, mpanorina trano",
+   health:"Tandremo ny asa be loatra sy ny fo. Ampifandanjao ny asa sy ny fialan-tsasatra.",
+   spirituality:"Fanamby ho anao: mampifanaraka ny hery ara-materialy sy ny harena anaty.",
+   luck:"Andro mahasoa: Sabotsy sy Alakamisy. Isa: 8, 17, 26.",
+   colors:"Mainty, volamena, bordeaux, volomparasy vy",days:"Sabotsy, Alakamisy",
+   months:"Aogositra, Novambra",years:"Taona mifarana amin'ny 8",
+   professions:"Talen'orinasa, Banky, Mpisolovava, Tale ara-bola, Mpanorina trano",
+   stone:"Onyx, Safira — mariky ny hery sy ny fiarovana",
+   quote:"« Tsy ny fahefana no manimba, fa ny tahotra ny hahavery azy. »"},
+ 9:{desc:"Ny 9 dia fara tampon'ny tsingerina, mpitia ny olombelona rehetra. Manana fijery midadasika sy fangorahana mamihina ny zanak'olombelona rehetra ianao. Ny antsonao dia ny hanompo idealy.",
+   strengths:"Fitiavana olombelona, fangorahana, fahendrena, fahalalahan-tanana, famoronana, hatsaram-panahy",
+   weaknesses:"Idealy tafahoatra, sarotra mamita, fanaovana sorona, fahakiviana",
+   talents:"Kanto, fanampiana, fikarakarana, fampianarana, filozofia",
+   challenges:"Manaiky ny fetran'ny maha-olombelona, mamita, mamela handeha",
+   advice:"Hery ny fangorahanao; miarova tena rehefa manome. Ny fanomezana hendry no mamelona ny mpanome.",
+   love:"Tia manerantany fa sahirana mifidy iray; manandratra.",
+   marriage:"Tokony hanana heviny lehibe kokoa ny firaisana, tetikasa ho an'izao tontolo izao.",
+   family:"Mitondra ny fianakaviana amim-pitiavana; mianara mandray toy ny anomezana.",
+   children:"Mampita fijery midadasika sy tia olombelona.",
+   relations:"Tian'ny rehetra ianao; mifidiana fifandraisana manandratra anao.",
+   work:"Kanto, fanampiana, fampianarana, fitsaboana, torohevitra, ara-panahy.",
+   business:"Ny raharaha tsara indrindra dia izay manompo idealy: ONG, fondation, kanto.",
+   money:"Tonga sy lasa ny vola; mianara mitahiry.",
+   career:"Mpanakanto, mpanampy olombelona, filozofa, therapeuta, mpitari-dalana, mpampianatra",
+   health:"Tandremo ny fahareraham-po vokatry ny fanomezana tafahoatra. Arovy ny herinao.",
+   spirituality:"Tena ara-panahy: asa fitiavana manerantany ny fiainanao.",
+   luck:"Andro mahasoa: Talata sy Alakamisy. Isa: 9, 18, 27.",
+   colors:"Volamena, fotsy, loko avana",days:"Talata, Alakamisy",
+   months:"Septambra, Desambra",years:"Taona mifarana amin'ny 9",
+   professions:"Mpanakanto, Mpanampy olombelona, Filozofa, Therapeuta, Mpitari-dalana, Mpampianatra",
+   stone:"Opala, Grenà — mariky ny fangorahana sy ny fahendrena manerantany",
+   quote:"« Aoka ianao ho ilay fitiavana tianao ho hita eto amin'izao tontolo izao. »"},
+ 11:{desc:"Ny Isa Tompo 11 dia fantsom-pahiratana avo. Manana fahamorana miavaka sy iraka fanentanana ianao. Eto ianao mba hanazava sy hanandratra ny manodidina anao.",
+   strengths:"Fahiratana avo, fahitana, aingam-panahy, bitsika ara-panahy",
+   weaknesses:"Tebiteby, saro-piaro, sarotra mifototra",
+   talents:"Kanto entanina, fampianarana ara-panahy, fanasitranana, fitarihana manintona",
+   challenges:"Mifototra amin'ny ara-materialy, mifehy ny fahamorana, mifandanja",
+   advice:"Harena ny fifandraisanao amin'ny miafina: fantsony izany fa aza reraka.",
+   love:"Tia amin'ny hafanam-po miavaka; mitady ilay hafa tena mifanaraka aminao.",
+   marriage:"Tokony ho ara-panahy ny firaisana: tsy misy latsak'izany no mety aminao.",
+   family:"Matetika ianao no mitondra ny nofinofin'ny fianakaviana.",
+   children:"Mitaiza zaza saro-piaro, mahiratra sy be famoronana.",
+   relations:"Manintona an'izay mitady fahazavana; aoka ho jiro fa tsy maritiora.",
+   work:"Kanto, ara-panahy, psikология, mozika, fampianarana manentana.",
+   business:"Mpahita miavaka; mila mpiara-miombon'antoka azo ampiharina.",
+   money:"Manaraka ny irakao ny vola: mifantoha amin'ny antsonao.",
+   career:"Mpitari-dalana, mpanakanto, therapeuta, mpampianatra manentana, mpanazatra",
+   health:"Tena marefo amin'ny angovo; arovy ny fifandanjan'ny hozatra.",
+   spirituality:"Fifandraisana mivantana amin'ny heviny lalina: hatsaraovy ny fanomezam-pahasoavanao.",
+   luck:"Andro mahasoa: Alatsinainy sy Zoma. Isa: 11, 2, 20.",
+   colors:"Fotsy, volafotsy, volomparasy, volamena",days:"Alatsinainy, Zoma",
+   months:"Novambra, Febroary",years:"2011, 2020, 2029",
+   professions:"Mpitari-dalana, Mpanakanto, Therapeuta, Mpampianatra manentana, Mpanazatra",
+   stone:"Selenita, Labradorita — mifantsona ny fahiratana sy miaro",
+   quote:"« Ianao no fahazavana manazava ny lalan'ny hafa. »"},
+ 22:{desc:"Ny Isa Tompo 22 no mahery indrindra amin'ny numerolojia. Manana fahafahana manorina ny tsy hay atao sy hanatanteraka zavatra lehibe ho an'ny olombelona ianao. Mpahita sady azo ampiharina.",
+   strengths:"Mpahita azo ampiharina, fandaminana ambony, faharetana, fitarihana",
+   weaknesses:"Fitadiavana lavorary mahasakana, tsindry, tahotra ny tsy fahombiazana",
+   talents:"Manorina rafitra lehibe, manatanteraka nofinofy iombonana",
+   challenges:"Sahia mifanandrify amin'ny fahaizanao, fehezo ny tsindry",
+   advice:"Lehibe ny irakao: manomboha amin'ny dingana iray. Toy izany ny dia lehibe rehetra.",
+   love:"Mitady mpiara-belona mahatakatra ny irakao miavaka.",
+   marriage:"Manohana ny fahitanao ny firaisana: mpiara-belona mino anao.",
+   family:"Mitondra fahitana ho an'ny taranaka maro ianao.",
+   children:"Mitaiza ny zanakao amin'ny fahatsapana midadasika an'izao tontolo izao.",
+   relations:"Fifandraisana vitsy fa mahery; manintona ny miavaka ianao.",
+   work:"Rafitra lehibe, fikambanana, famoronana, tetikasa goavana.",
+   business:"Afaka mamorona orinasa manova ny sehatra misy azy.",
+   money:"Manompo ny irakao ny vola: afaka mamorona harena be.",
+   career:"Mpanao mari-trano, mpitondra, mpamorona, mpanorina, lehiben'ny tetikasa lehibe",
+   health:"Mandreraka ny tsindrin'ny 22: karakarao aloha ny tenanao.",
+   spirituality:"Ara-panahin'ny fanehoana: manatsara an'izao tontolo izao amin'ny fomba mivaingana.",
+   luck:"Andro mahasoa: Sabotsy sy Alakamisy. Isa: 22, 4, 8.",
+   colors:"Bordeaux, volamena, mainty lalina",days:"Sabotsy, Alakamisy",
+   months:"Aprily, Aogositra",years:"2002, 2011, 2020",
+   professions:"Mpanao mari-trano, Mpitondra, Mpamorona, Mpanorina, Lehiben'ny tetikasa lehibe",
+   stone:"Diamondra, Grenà — mampitombo ny herim-panatanterahana",
+   quote:"« Tsy voatery hahita ny tohatra manontolo ianao; ataovy fotsiny ny dingana voalohany. »"},
+ 33:{desc:"Ny Isa Tompo 33 dia Tompon'ny fangorahana. Eto ianao mba hampianatra ny fitiavana tsy misy fepetra sy hanasitrana an'izao tontolo izao amin'ny ohatra asehonao. Ny fanompoana avo indrindra.",
+   strengths:"Fangorahana maneran-tany, fahendrena, fanomezam-panahy hampianatra, fanasitranana",
+   weaknesses:"Fitadiavana lavorary, fanaovana sorona ny tena, vesatry ny andraikitra",
+   talents:"Mampianatra fitiavana, fanasitranana ara-panahy, kanto, fahaizana manintona lalina",
+   challenges:"Miaina ny irakao nefa tsy very tena, manaiky ny fetranao",
+   advice:"Lehibe ny fitiavanao: tiavo aloha ny tenanao mba hahafahanao mitia an'izao tontolo izao.",
+   love:"Mihoatra ny olona tsirairay ny fitiavanao; tia amin'ny halalina miavaka.",
+   marriage:"Asa fitiavana ny firaisana, firaisana masina.",
+   family:"Mihavana sy mihaona indray ny fianakaviana manodidina anao.",
+   children:"Mandova fahendrena sy fangorahana miavaka ny zanakao.",
+   relations:"Tsapan'ny rehetra ny hatsaram-panahinao; miaraha amin'izay manandratra anao.",
+   work:"Fampianarana, kanto, fitsaboana holistika, fitarihana be hatsaram-panahy.",
+   business:"Ny raharaha tsara indrindra dia izay manandratra ny olombelona.",
+   money:"Tonga hanompo ny irakao ny harem-be.",
+   career:"Mpampianatra, mpanasitrana, mpanakanto entanina, mpitari-dalana, mpanabe",
+   health:"Manaraka ny haavon'ny fitiavanao tena ny fahasalamanao: karakarao ny tenanao.",
+   spirituality:"Fisehoana velon'ny fitiavana be hatsaram-panahy: izany no maha-izy anao.",
+   luck:"Andro mahasoa: Zoma sy Alahady. Isa: 33, 6, 9.",
+   colors:"Mavokely malefaka, fotsy, volamena",days:"Zoma, Alahady",
+   months:"Jona, Martsa",years:"2013, 2022, 2031",
+   professions:"Mpampianatra, Mpanasitrana, Mpanakanto, Mpitari-dalana, Mpanabe, Mpanazatra fiainana",
+   stone:"Kuartsa mavokely, Kunzita — mifantsona ny fitiavana tsy misy fepetra",
+   quote:"« Ny fitiavana no hany mitombo rehefa zaraina. »"}
+};
+
+/* textes complémentaires (mode PRO) en MG */
+const DEBT_TXT_MG={
+ 13:"Trosa ara-asa: hakamoana taloha tsy maintsy onerana. Ny asa mafy no manafaka anao.",
+ 14:"Trosa ara-pahalalahana: tafahoatra taloha. Ny filaminana sy ny fahonony no manafaka anao.",
+ 16:"Trosa ara-panetren-tena: fireharehana taloha. Miaina indray rehefa nanaiky nianjera.",
+ 19:"Trosa ara-pahefana: fanararaotam-pahefana taloha. Manompoa amim-panetren-tena."
+};
+const LESSON_TXT_MG={
+ 1:"Hampandrosoana ny fahatokisan-tena sy ny fandraisana andraikitra.",
+ 2:"Hampandrosoana ny fahamorana sy ny fiaraha-miasa.",
+ 3:"Hampandrosoana ny famoronana sy ny fanehoana.",
+ 4:"Hampandrosoana ny fifehezana sy ny fitiavan'asa.",
+ 5:"Hampandrosoana ny fahaizana miova sy ny fisokafana amin'ny fiovana.",
+ 6:"Hampandrosoana ny andraikitra sy ny fitiavana ny tokantrano.",
+ 7:"Hampandrosoana ny halalinana sy ny fisaintsainana.",
+ 8:"Hampandrosoana ny fahaiza-mandraharaha sy ny fitantanana.",
+ 9:"Hampandrosoana ny fangorahana sy ny fisokafana amin'izao tontolo izao."
+};
+const CHAL_TXT_MG={
+ 0:"Ny fanamby lehibe: mifehy ny zava-drehetra amim-pifandanjana.",
+ 1:"Manamafy ny maha-izy anao nefa tsy manitsakitsaka ny hafa.",
+ 2:"Mandresy ny tsy fahasahiana manapaka sy ny fiankinan-doha.",
+ 3:"Mifehy tena sy tsy miely.",
+ 4:"Manalefaka ny hamafisana, manaiky ny fiovana.",
+ 5:"Mifehy ny tsy fahamarinan-toerana sy ny tafahoatra.",
+ 6:"Avelao ny fitadiavana lavorary sy ny fanaovana sorona.",
+ 7:"Mivoaka amin'ny fitokana-monina sy ny fisalasalana.",
+ 8:"Mitantana ny fahefana sy ny vola tsy amin'ny tafahoatra."
+};
+const PLANE_TXT_MG={
+ physical:"Mifototra, azo ampiharina, mitodika amin'ny mivaingana sy ny asa.",
+ mental:"Mandinika, misaina, mahay amin'ny hevitra sy ny lojika.",
+ emotional:"Tarihin'ny fo, ny fahiratana ary ny fihetseham-po.",
+ intuitive:"Mifandray amin'ny miafina, ny aingam-panahy sy ny heviny miafina."
+};
+
+/* helpers bilingues */
+function DL(num){var b=ND(num);if(LANG!=='mg')return b;var mg=NUM_MG[num]||NUM_MG[reduce(num,false)];if(!mg)return b;var o={};for(var k in b)o[k]=b[k];for(var k in mg)o[k]=mg[k];return o;}
+function L(fr,mg){return LANG==='mg'?mg:fr;}
+function debtTxt(n){return LANG==='mg'&&DEBT_TXT_MG[n]?DEBT_TXT_MG[n]:DEBT_TXT[n];}
+function lessonTxt(n){return LANG==='mg'&&LESSON_TXT_MG[n]?LESSON_TXT_MG[n]:LESSON_TXT[n];}
+function chalTxt(n){return LANG==='mg'&&CHAL_TXT_MG[n]!=null?CHAL_TXT_MG[n]:CHAL_TXT[n];}
+function planeTxt(k){return LANG==='mg'&&PLANE_TXT_MG[k]?PLANE_TXT_MG[k]:PLANE_TXT[k];}
+
+
+/* ============================================================
+   NUMÉRO MADA — LOGIQUE APPLICATIVE
+   Navigation · rendu gratuit/PRO · modules · historique · PDF
+   ============================================================ */
+let currentChart=null;   // dernière analyse rendue
+let currentGender="";
+let history=[];
+let logoTaps=0,logoTimer=null;
+
+/* ---------- helpers UI ---------- */
+function $(id){return document.getElementById(id);}
+function toast(msg){const t=$("toast");t.textContent=msg;t.classList.add("show");
+  clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("show"),2000);}
+function loader(on,txt){const l=$("loader");$("loader-txt").textContent=txt||tr("calculating");l.classList.toggle("show",on);}
+function esc(s){return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function initials(name){return (name||"?").trim().split(/\s+/).map(w=>w[0]||"").slice(0,2).join("").toUpperCase();}
+function frDate(iso){if(!iso)return"";const[y,m,d]=iso.split("-");return d+"/"+m+"/"+y;}
+function badge(n){const master=MASTER.includes(n);return `<div class="numcard-badge ${master?'master':''}" style="background:${numColor(n)}">${n}</div>`;}
+
+/* ---------- navigation ---------- */
+const SCREENS=["lang","home","form","result","event","country","compat","history"];
+const TABBAR_SCREENS=["home","event","country","history"];
+function showScreen(id){
+  SCREENS.forEach(s=>$("s-"+s)&&$("s-"+s).classList.remove("active"));
+  const el=$("s-"+id);if(el)el.classList.add("active");
+  const showBar=id!=="lang";
+  $("tabbar").style.display=showBar?"flex":"none";
+  document.querySelectorAll(".tabbar-item").forEach(t=>t.classList.toggle("on",t.dataset.tab===id));
+  window.scrollTo(0,0);
+  const sc=el&&el.querySelector(".scroll");if(sc)sc.scrollTop=0;
+  if(id==="history")renderHistory();
+}
+
+/* ---------- langue ---------- */
+function chooseLang(l){LANG=l;localStorage.setItem("nm_lang",l);applyLang();showScreen("home");renderHomeHero();}
+function applyLang(){
+  document.documentElement.lang=LANG;
+  document.querySelectorAll("[data-i]").forEach(e=>{const k=e.getAttribute("data-i");if(I18N[LANG][k]!=null)e.textContent=tr(k);});
+  document.querySelectorAll("[data-ph]").forEach(e=>{/*keep static placeholders*/});
+}
+
+/* ---------- form / analyse ---------- */
+function pickGender(el,g){el.parentElement.querySelectorAll(".seg-opt").forEach(o=>o.classList.remove("on"));el.classList.add("on");currentGender=g;}
+function runAnalysis(){
+  const name=$("f-name").value.trim(),dob=$("f-dob").value;
+  if(!name)return toast(tr("need_name"));
+  if(!dob)return toast(tr("need_date"));
+  loader(true);
+  setTimeout(()=>{
+    const chart=computeChart(name,dob);
+    currentChart={name,dob,gender:currentGender,...chart,id:Date.now(),createdAt:new Date().toISOString()};
+    saveToHistory(currentChart);
+    renderResult(currentChart);
+    loader(false);
+    showScreen("result");
+  },350);
+}
+
+/* ============================================================
+   RENDU DES RÉSULTATS  (gratuit + PRO)
+   ============================================================ */
+const RES_TABS=[["core","tab_core"],["detail","tab_detail"],["cycles","tab_cycles"],["karma","tab_karma"],["forecast","tab_forecast"]];
+function renderResult(c){
+  $("res-name").textContent=c.name.split(/\s+/)[0]||tr("app");
+  // tabs
+  $("res-tabs").innerHTML=RES_TABS.map(([id,k],i)=>`<button class="tab ${i===0?'on':''}" onclick="switchResTab('${id}')">${tr(k)}</button>`).join("");
+  RES_TABS.forEach(([id])=>$("pane-"+id).classList.toggle("on",id==="core"));
+  // hero
+  const hero=`<div class="hero">
+    <div class="hero-emoji">🔢</div>
+    <div class="hero-name">${esc(c.name)}</div>
+    <div class="hero-meta">${tr("born")} ${frDate(c.dob)}${c.gender?" · "+(c.gender==="M"?tr("g_m"):tr("g_f")):""}</div>
+    <div class="hero-nums">
+      ${heroNum(tr("lp"),c.lifePath)}${heroNum(tr("expr"),c.expression)}${heroNum(tr("soul"),c.soul)}
+      ${heroNum(tr("pers"),c.personality)}${heroNum("Anniv.",c.birthday)}
+    </div></div>`;
+  // ---- CORE ----
+  const pro=isPro();
+  let core=hero;
+  core+=coreCard("lp",tr("lp"),c.lifePath,"Jour + Mois + Année");
+  core+=coreCard("expr",tr("expr"),c.expression,"Toutes les lettres du nom");
+  core+=coreCard("soul",tr("soul"),c.soul,"Voyelles du nom");
+  core+=coreCard("pers",tr("pers"),c.personality,"Consonnes du nom");
+  core+=coreCard("bday","Birthday Number",c.birthday,"Jour de naissance");
+  core+=coreCard("mat","Maturité",c.maturity,"Chemin de Vie + Expression");
+  $("pane-core").innerHTML=core;
+  // ---- DETAIL (profil complet) ----
+  $("pane-detail").innerHTML= pro
+    ? detailFull(c)
+    : lockPane(L("Profil complet PRO","Mombamomba feno PRO"),L("Amour, travail, argent, santé, carrière, professions conseillées, pierre porte-bonheur, compatibilités…","Fitiavana, asa, vola, fahasalamana, carrière, asa mety, vato mitondra vintana, fifanarahana…"));
+  // ---- CYCLES ----
+  $("pane-cycles").innerHTML= pro ? cyclesPane(c) : lockPane(L("Cycles PRO","Tsingerina PRO"),L("Cycles de vie, Pinnacles, Challenges, chronologie 0–100 ans.","Tsingerim-piainana, Tampony, Fanamby, fizotry ny taona 0–100."));
+  // ---- KARMA ----
+  $("pane-karma").innerHTML= pro ? karmaPane(c) : lockPane(L("Karma PRO","Karma PRO"),L("Dettes & leçons karmiques, nombres manquants, passion cachée, plans d'expression, Balance, Rational Thought.","Trosa & lesona karmika, isa tsy ampy, firehetana miafina, sehatra fanehoana, Fifandanjana, Fisainana milamina."));
+  // ---- FORECAST ----
+  $("pane-forecast").innerHTML= pro ? forecastPane(c) : lockPane(L("Prévisions PRO","Vinavina PRO"),L("Année/mois/jour personnels + prévisions détaillées sur 9 ans.","Taona/volana/andro manokana + vinavina 9 taona."));
+  // pdf/share button appended to forecast
+  $("pane-forecast").innerHTML+=`<div class="section" style="margin-bottom:20px">
+    ${pro?`<button class="btn btn-tint btn-lg" onclick="makePDF()">📄 ${tr("pdf")}</button>`:""}
+    <p class="disclaimer">${tr("disc_short")}</p></div>`;
+}
+function heroNum(l,n){return `<div class="hero-num"><div class="v">${n}</div><div class="l">${l}</div></div>`;}
+
+function coreCard(key,label,n,formula){
+  const d=DL(n);const t=d["title_"+LANG]||d.title_fr;const kw=d["kw_"+LANG]||d.kw_fr;
+  const short=d["short_"+LANG]||d.short_fr;
+  const pro=isPro();
+  let body=`<div class="numcard-desc">${esc(short)}</div>
+    <div class="tag-wrap" style="margin-top:8px">${kw.split("·").map(x=>`<span class="tag">${esc(x.trim())}</span>`).join("")}</div>`;
+  if(pro){
+    body+=`<div class="det"><div class="det-h">${tr("q_str")}</div><div class="det-p">${esc(d.strengths)}</div>
+      <div class="det-h">${tr("q_weak")}</div><div class="det-p">${esc(d.weaknesses)}</div>
+      <div class="det-h">${tr("q_adv")}</div><div class="det-p">${esc(d.advice)}</div>
+      <div class="quote">${esc(d.quote)}</div></div>`;
+  }else{
+    body+=`<div class="seemore" onclick="openPro()">${tr("see_more")} <span style="font-size:12px">▾</span></div>`;
+  }
+  return `<div class="numcard"><div class="numcard-hd">${badge(n)}
+    <div class="numcard-ttl"><div class="k">${label}${formula?" · "+esc(formula):""}</div>
+    <div class="n">${esc(t)}</div><div class="s">${d.icon} ${tr("app")}</div></div></div>
+    <div class="numcard-body">${body}</div></div>`;
+}
+
+/* profil complet PRO */
+function detailFull(c){
+  const nums=[["lp",tr("lp"),c.lifePath],["expr",tr("expr"),c.expression],["soul",tr("soul"),c.soul],["pers",tr("pers"),c.personality]];
+  let html="";
+  nums.forEach(([k,label,n])=>{
+    const d=DL(n);
+    html+=`<div class="numcard"><div class="numcard-hd">${badge(n)}
+      <div class="numcard-ttl"><div class="k">${label}</div><div class="n">${esc(d["title_"+LANG]||d.title_fr)}</div></div></div>
+      <div class="numcard-body">
+        <div class="numcard-desc">${esc(d.desc)}</div>
+        ${detSec(tr("q_tal"),d.talents)}${detSec(tr("q_chal"),d.challenges)}
+        <div class="det"><div class="det-h">❤️ ${tr("s_love")} · ${tr("s_marriage")} · ${tr("s_family")}</div>
+          ${kv(tr("s_love"),d.love)}${kv(tr("s_marriage"),d.marriage)}${kv(tr("s_family"),d.family)}
+          ${kv(tr("s_children"),d.children)}${kv(tr("s_rel"),d.relations)}</div>
+        <div class="det"><div class="det-h">💼 ${tr("s_work")} · ${tr("s_money")} · ${tr("s_career")}</div>
+          ${kv(tr("s_work"),d.work)}${kv(tr("s_biz"),d.business)}${kv(tr("s_money"),d.money)}${kv(tr("s_career"),d.career)}</div>
+        <div class="det"><div class="det-h">🌿 ${tr("s_health")} · ${tr("s_spirit")} · ${tr("s_luck")}</div>
+          ${kv(tr("s_health"),d.health)}${kv(tr("s_spirit"),d.spirituality)}${kv(tr("s_luck"),d.luck)}
+          <div class="warn-med">⚠️ ${tr("med_warn")}</div></div>
+        <div class="det"><div class="det-h">🎨 ${tr("s_colors")}</div>
+          <div class="swatches">${(d.colorHex||[]).map(h=>`<div class="swatch" style="background:${h}"></div>`).join("")}</div>
+          ${kv(tr("s_colors"),d.colors)}${kv(tr("s_days"),d.days)}${kv(tr("s_months"),d.months)}${kv(tr("s_years"),d.years)}
+          ${kv(tr("s_stone"),d.stone)}</div>
+        <div class="det"><div class="det-h">🧭 ${tr("s_prof")}</div>
+          <div class="tag-wrap">${d.professions.split(",").map(p=>`<span class="tag">${esc(p.trim())}</span>`).join("")}</div>
+          ${kv(tr("s_lovecompat"),d.loveCompat)}${kv(tr("s_workcompat"),d.workCompat)}</div>
+        <div class="quote">${esc(d.quote)}</div>
+      </div></div>`;
+  });
+  // Cornerstone / Capstone / Balance / Rational / Bridges cards
+  html+=miniCard(L("Cornerstone (1re lettre)","Cornerstone (litera voalohany)"),c.cornerstone,L("Votre approche instinctive face à la vie et aux projets.","Ny fomba fiatrehanao voajanahary ny fiainana sy ny tetikasa."));
+  html+=miniCard(L("Capstone (dernière lettre)","Capstone (litera farany)"),c.capstone,L("Comment vous terminez ce que vous entreprenez.","Ny fomba amarananao izay ataonao."));
+  html+=miniCard(L("Nombre d'Équilibre","Isan'ny Fifandanjana"),c.balance,L("La ressource sur laquelle vous appuyer en cas de crise.","Ny loharano iankinanao rehefa misy krizy."));
+  html+=miniCard(L("Pensée Rationnelle","Fisainana Milamina"),c.rational,L("Votre façon naturelle de raisonner et de décider.","Ny fomba voajanahary anaovanao sy anapahanao hevitra."));
+  html+=`<div class="chart-card"><div class="chart-title">🌉 ${L("Nombres-ponts (Bridges)","Isa-tetezana (Bridges)")}</div>
+    <div class="chart-note">${L("Ils relient vos nombres essentiels : plus ils sont petits, plus vos énergies sont alignées.","Mampifandray ny isanao fototra izy: arakaraka ny hakeliny no maha-mifanaraka bebe kokoa ny angovonao.")}</div>
+    ${kv(L("Pont Chemin↔Expression","Tetezana Lalana↔Fanehoana"),String(c.bridgeLE)+" — "+bridgeTxt(c.bridgeLE))}
+    ${kv(L("Pont Âme↔Personnalité","Tetezana Fanahy↔Toetra"),String(c.bridgeSP)+" — "+bridgeTxt(c.bridgeSP))}</div>`;
+  return html;
+}
+function detSec(h,txt){return `<div class="det"><div class="det-h">${h}</div><div class="det-p">${esc(txt)}</div></div>`;}
+function kv(k,v){return `<div class="kv"><span class="kk">${k}</span><span class="vv">${esc(v)}</span></div>`;}
+function miniCard(label,n,note){const d=ND(n);
+  return `<div class="numcard"><div class="numcard-hd">${badge(n)}
+    <div class="numcard-ttl"><div class="k">${esc(label)}</div><div class="n">${esc(d["title_"+LANG]||d.title_fr)}</div>
+    <div class="s">${esc(note)}</div></div></div></div>`;}
+function bridgeTxt(b){if(b===0)return L("parfaitement aligné","mifanaraka tanteraka");if(b<=2)return L("bien aligné","mifanaraka tsara");if(b<=4)return L("à harmoniser","mila ampifandanjaina");return L("grand contraste à équilibrer","fahasamihafana lehibe hampifandanjaina");}
+
+/* Cycles */
+function cyclesPane(c){
+  const yr=L("ans","taona");
+  let html=`<div class="chart-card"><div class="chart-title">🔄 ${L("Cycles de vie","Tsingerim-piainana")}</div>
+    <div class="chart-note">${L("Trois grandes périodes qui colorent la jeunesse, l'âge productif et la maturité.","Vanim-potoana telo lehibe mameno ny fahatanorana, ny taona mamokatra ary ny fahamatorana.")}</div>
+    ${cycleRow(L("Cycle formatif (jeunesse)","Tsingerina fanabeazana (fahatanorana)"),c.cycles.first)}
+    ${cycleRow(L("Cycle productif (adulte)","Tsingerina famokarana (olon-dehibe)"),c.cycles.second)}
+    ${cycleRow(L("Cycle de moisson (maturité)","Tsingerina fijinjana (fahamatorana)"),c.cycles.third)}</div>`;
+  html+=`<div class="chart-card"><div class="chart-title">🏔️ ${L("Pinnacles (sommets)","Tampony (Pinnacles)")}</div>
+    <div class="chart-note">${L("Quatre sommets qui révèlent les opportunités majeures selon votre âge.","Tampony efatra mampiseho ny vintana lehibe arakaraka ny taonanao.")}</div>
+    ${c.pinnacles.map((p,i)=>cycleRow(L("Pinnacle ","Tampony ")+(i+1)+" · "+p.age+" "+yr,p.n)).join("")}</div>`;
+  html+=`<div class="chart-card"><div class="chart-title">⚡ ${L("Challenges","Fanamby")}</div>
+    <div class="chart-note">${L("Les leçons à surmonter pour libérer votre plein potentiel.","Ny lesona resena mba hamoahana ny fahaizanao manontolo.")}</div>
+    ${c.challenges.map((ch,i)=>`<div class="kv"><span class="kk">${[L("1er","1"),L("2e","2"),L("Principal","Lehibe"),L("Final","Farany")][i]}</span>
+      <span class="vv"><b style="color:${numColor(ch||1)}">${ch}</b> · ${esc(chalTxt(ch)||L("Équilibre à trouver","Fifandanjana hotadiavina"))}</span></div>`).join("")}</div>`;
+  // timeline 0-100
+  html+=`<div class="chart-card"><div class="chart-title">📈 ${L("Chronologie (0 → 100 ans)","Fizotry ny taona (0 → 100)")}</div><div class="tl">${timeline(c)}</div></div>`;
+  return html;
+}
+function cycleRow(label,n){return `<div class="bar-row"><div class="bar-num" style="background:${numColor(n)}">${n}</div>
+  <div style="flex:1"><div style="font-size:14px;font-weight:600">${esc(label)}</div>
+  <div style="font-size:13px;color:var(--label2)">${esc(DL(n)["title_"+LANG]||DL(n).title_fr)}</div></div></div>`;}
+function timeline(c){
+  const pts=c.pinnacles.map((p)=>({age:p.age,n:p.n}));
+  return pts.map(p=>`<div class="tl-item"><div class="tl-dot" style="background:${numColor(p.n)}"></div>
+    <div class="tl-yr">${p.age} ans · ${p.n}</div>
+    <div class="tl-txt">${esc((UNIV[p.n]||UNIV[reduce(p.n,false)]||UNIV[1])[LANG])}</div></div>`).join("");
+}
+
+/* Karma */
+function karmaPane(c){
+  let html="";
+  // debts
+  html+=`<div class="chart-card"><div class="chart-title">⚡ ${L("Dettes karmiques","Trosa karmika")}</div>`;
+  if(c.debts.length){html+=c.debts.map(dbt=>`<div class="kv"><span class="kk">${L("Dette","Trosa")} ${dbt}</span><span class="vv">${esc(debtTxt(dbt))}</span></div>`).join("");}
+  else html+=`<div class="chart-note">✅ ${L("Aucune dette karmique détectée. Votre passé vibratoire est équilibré.","Tsy misy trosa karmika hita. Milamina ny lasanao.")}</div>`;
+  html+=`</div>`;
+  // lessons + missing grid
+  html+=`<div class="chart-card"><div class="chart-title">📚 ${L("Leçons karmiques & nombres manquants","Lesona karmika & isa tsy ampy")}</div>
+    <div class="chart-note">${L("Chiffres absents de votre nom : ce sont vos zones de croissance.","Isa tsy ao amin'ny anaranao: ireo no faritra hampandrosoana.")}</div>
+    <div class="pyth-grid" style="margin-bottom:14px">${[1,2,3,4,5,6,7,8,9].map(i=>{
+      const miss=c.lessons.includes(i);
+      return `<div class="pyth-cell ${miss?'empty':'filled'}"><div class="pn">${i}</div><div class="pc">${c.freq[i]}×</div></div>`;}).join("")}</div>
+    ${c.lessons.length?c.lessons.map(l=>`<div class="kv"><span class="kk">${L("Leçon","Lesona")} ${l}</span><span class="vv">${esc(lessonTxt(l))}</span></div>`).join(""):`<div class="chart-note">✅ ${L("Tous les chiffres présents : alphabet numérique complet.","Isa rehetra ao: feno ny abidian'ny isa.")}</div>`}</div>`;
+  // hidden passion + intensity
+  html+=`<div class="chart-card"><div class="chart-title">🔥 ${L("Passion cachée · Intensité","Firehetana miafina · Hamafisana")}</div>
+    <div class="chart-note">${L("Le chiffre le plus fréquent révèle votre talent dominant.","Ny isa matetika indrindra no mampiseho ny talentanao lehibe.")}</div>
+    ${(function(){const d=DL(c.hiddenPassion);return `<div class="bar-row"><div class="bar-num" style="background:${numColor(c.hiddenPassion)}">${c.hiddenPassion}</div>
+      <div style="flex:1"><b>${esc(d["title_"+LANG]||d.title_fr)}</b><div style="font-size:13px;color:var(--label2)">${esc(d.talents)}</div></div></div>`;})()}
+    <div style="margin-top:12px">${(function(){const max=Math.max(...Object.values(c.freq),1);
+      return [1,2,3,4,5,6,7,8,9].map(i=>`<div class="bar-row"><div class="bar-num" style="background:${numColor(i)}">${i}</div>
+        <div class="bar-track"><div class="bar-fill" style="width:${c.freq[i]/max*100}%"></div></div>
+        <div class="bar-cnt">${c.freq[i]}</div></div>`).join("");})()}</div></div>`;
+  // planes
+  const total=Object.values(c.planes).reduce((a,b)=>a+b,0)||1;
+  const labels={physical:L("Physique","Ara-batana"),mental:L("Mental","Ara-tsaina"),emotional:L("Émotionnel","Ara-pihetseham-po"),intuitive:L("Intuitif","Ara-pahiratana")};
+  const cols={physical:"#FF3B30",mental:"#007AFF",emotional:"#FF2D55",intuitive:"#AF52DE"};
+  const domPlane=Object.entries(c.planes).sort((a,b)=>b[1]-a[1])[0][0];
+  html+=`<div class="chart-card"><div class="chart-title">🎭 ${L("Plans d'expression","Sehatra fanehoana")}</div>
+    ${Object.entries(c.planes).map(([k,v])=>`<div class="bar-row">
+      <div style="width:78px;font-size:13px;color:var(--label2)">${labels[k]}</div>
+      <div class="bar-track"><div class="bar-fill" style="width:${v/total*100}%;background:${cols[k]}"></div></div>
+      <div class="bar-cnt">${Math.round(v/total*100)}%</div></div>`).join("")}
+    <div class="chart-note" style="margin-top:8px"><b>${L("Dominant","Manjaka")} : ${labels[domPlane]}</b> — ${esc(planeTxt(domPlane))}</div></div>`;
+  // subconscious + balance + rational
+  html+=`<div class="chart-card"><div class="chart-title">🧩 ${L("Nombres complémentaires","Isa fanampiny")}</div>
+    ${kv(L("Moi subconscient","Ny tena miafina"),c.subconscious+" / 9 — "+L("confiance en vos ressources intérieures","fahatokisana ny herinao anaty"))}
+    ${kv(L("Nombre d'Équilibre","Isan'ny Fifandanjana"),c.balance+" — "+esc(DL(c.balance).advice))}
+    ${kv(L("Pensée rationnelle","Fisainana milamina"),c.rational+" — "+esc((DL(c.rational)["kw_"+LANG]||DL(c.rational).kw_fr)))}</div>`;
+  return html;
+}
+
+/* Forecast */
+function forecastPane(c){
+  const now=new Date();
+  let html=`<div class="chart-card"><div class="chart-title">📅 ${L("Vos cycles actuels","Ny tsingerinao ankehitriny")}</div>
+    ${cycleRow(L("Année personnelle ","Taona manokana ")+now.getFullYear(),c.personalYear)}
+    <div class="chart-note">${esc((UNIV[c.personalYear]||UNIV[reduce(c.personalYear,false)])[LANG])}</div>
+    ${cycleRow(L("Mois personnel","Volana manokana"),c.personalMonth)}
+    <div class="chart-note">${esc((UNIV[c.personalMonth]||UNIV[reduce(c.personalMonth,false)])[LANG])}</div>
+    ${cycleRow(L("Jour personnel","Andro manokana"),c.personalDay)}
+    <div class="chart-note">${esc((UNIV[c.personalDay]||UNIV[reduce(c.personalDay,false)])[LANG])}</div></div>`;
+  html+=`<div class="chart-card"><div class="chart-title">🗓️ ${L("Prévisions sur 9 ans","Vinavina 9 taona")}</div><div class="tl">`;
+  html+=c.forecast.map(f=>{const cur=f.year===now.getFullYear();
+    return `<div class="tl-item"><div class="tl-dot" style="background:${numColor(f.n)}"></div>
+      <div class="tl-yr">${f.year} · ${L("Année","Taona")} ${f.n}${cur?" ★":""}</div>
+      <div class="tl-txt">${esc((UNIV[f.n]||UNIV[reduce(f.n,false)])[LANG])}</div></div>`;}).join("");
+  html+=`</div></div>`;
+  return html;
+}
+
+/* locked pane (free) */
+function lockPane(title,desc){
+  return `<div style="padding:40px 24px;text-align:center">
+    <div style="font-size:48px;margin-bottom:8px">🔒</div>
+    <div style="font-size:20px;font-weight:700;margin-bottom:6px">${esc(title)}</div>
+    <div style="font-size:15px;color:var(--label2);max-width:320px;margin:0 auto 20px;line-height:1.5">${esc(desc)}</div>
+    <button class="btn btn-pro btn-lg" style="max-width:300px;margin:0 auto" onclick="openPro()">👑 ${tr("unlock_pro")} · ${PRO_PRICE}</button>
+  </div>`;
+}
+function switchResTab(id){
+  document.querySelectorAll("#res-tabs .tab").forEach((t,i)=>t.classList.toggle("on",RES_TABS[i][0]===id));
+  RES_TABS.forEach(([x])=>$("pane-"+x).classList.toggle("on",x===id));
+  $("s-result").querySelector(".scroll").scrollTop=0;
+}
+
+/* ============================================================
+   MODULE ÉVÉNEMENT (date + heure + pays + personne)
+   ============================================================ */
+function runEvent(){
+  const title=$("ev-title").value.trim()||tr("event_pred");
+  const date=$("ev-date").value;const time=$("ev-time").value;
+  if(!date)return toast(tr("need_date"));
+  loader(true);
+  setTimeout(()=>{
+    const uDay=universalDay(date);
+    const hour=hourNumber(time);
+    const moment=time?reduce(reduce(uDay,false)+reduce(hour,false),true):uDay;
+    const person=$("ev-person").value.trim();const pdob=$("ev-pdob").value;
+    const country=$("ev-country").value.trim();
+    let blocks="";
+    // instant global
+    const uDesc=(UNIV[uDay]||UNIV[reduce(uDay,false)])[LANG];
+    blocks+=`<div class="event-big">
+      <div class="event-num" style="background:${numColor(moment)}">${moment}</div>
+      <div class="event-label">${esc(title)} · ${frDate(date)}${time?" · "+time:""}</div>
+      <div class="event-name">${tr("moment")}</div>
+    </div>`;
+    // scores
+    let scoreParts=[];
+    let html=`<div class="chart-card"><div class="chart-title">🌍 ${L("Lecture universelle","Vakiteny manerantany")}</div>
+      ${kv(tr("universal_day"),uDay+" — "+esc(uDesc))}`;
+    if(time)html+=kv(tr("ev_hour"),hour+" — "+esc((UNIV[hour]||UNIV[reduce(hour,false)])[LANG]));
+    html+=`</div>`;
+    // person
+    if(person&&pdob){
+      const pDay=personalDayFor(pdob,date);
+      const pChart=computeChart(person,pdob);
+      const sc=compatScore(pChart.lifePath,uDay);scoreParts.push(sc);
+      const lvl=compatLevel(sc);
+      html+=`<div class="chart-card"><div class="chart-title">👤 ${esc(person)} & ${L("cette date","io daty io")}</div>
+        ${kv(tr("personal_day"),pDay+" — "+esc((UNIV[pDay]||UNIV[reduce(pDay,false)])[LANG]))}
+        ${meter(tr("p_date"),sc,lvl)}
+        <div class="chart-note">${L("Chemin de Vie","Lalan-tsaina")} ${pChart.lifePath} ${L("face au jour universel","manoloana ny andro manerantany")} ${uDay} : ${LANG==="mg"?lvl.lab_mg:lvl.lab_fr.toLowerCase()}.</div></div>`;
+    }
+    // country
+    if(country){
+      const cNum=nameNumber(country);
+      const dScore=compatScore(cNum,uDay);
+      const lvlC=compatLevel(dScore);
+      html+=`<div class="chart-card"><div class="chart-title">📍 ${esc(country)}</div>
+        ${kv(tr("country_energy"),cNum+" — "+esc(ND(cNum)["kw_"+LANG]||ND(cNum).kw_fr))}
+        ${meter(L("Lieu & date","Toerana & daty"),dScore,lvlC)}`;
+      if(person&&pdob){const pc=computeChart(person,pdob);const pcs=compatScore(pc.lifePath,cNum);scoreParts.push(pcs);
+        html+=meter(tr("p_country"),pcs,compatLevel(pcs));}
+      html+=`</div>`;
+    }
+    // verdict
+    const avg=scoreParts.length?scoreParts.reduce((a,b)=>a+b,0)/scoreParts.length:Math.min(9,Math.max(4,uDay>9?7:[0,7,6,8,5,7,8,6,9,7][uDay]||6));
+    let vkey= avg>=8?"ev_verdict_hi":avg>=7?"ev_verdict_ok":avg>=6?"ev_verdict_mid":"ev_verdict_lo";
+    const vlvl=compatLevel(avg);
+    html=`<div class="chart-card" style="text-align:center;background:${vlvl.c}18">
+      <div style="font-size:15px;color:var(--label2)">${L("Verdict","Didim-pitsarana")}</div>
+      <div style="font-size:22px;font-weight:700;color:${vlvl.c};margin-top:2px">${tr(vkey)}</div>
+      <div class="meter" style="margin-top:10px"><div class="meter-track"><div class="meter-fill" style="width:${Math.round(avg/9*100)}%;background:${vlvl.c}"></div></div>
+      <div class="meter-val" style="color:${vlvl.c}">${(avg).toFixed(1)}</div></div></div>`+html;
+    blocks+=html;
+    blocks+=`<p class="disclaimer">${tr("disc_home")}</p>`;
+    // free/pro gating: free shows universal only; pro shows person+country detail
+    if(!isPro()&&(person||country)){
+      blocks=`<div class="event-big"><div class="event-num" style="background:${numColor(moment)}">${moment}</div>
+        <div class="event-label">${esc(title)} · ${frDate(date)}${time?" · "+time:""}</div>
+        <div class="event-name">${tr("moment")}</div></div>
+        <div class="chart-card"><div class="chart-title">🌍 ${L("Lecture universelle","Vakiteny manerantany")}</div>${kv(tr("universal_day"),uDay+" — "+esc(uDesc))}
+        ${time?kv(tr("ev_hour"),hour+" — "+esc((UNIV[hour]||UNIV[reduce(hour,false)])[LANG])):""}</div>`
+        +lockPane(L("Analyse personnalisée PRO","Analyse manokana PRO"),L("Compatibilité de l'événement avec la personne et le pays/lieu indiqués, verdict global et conseils de timing.","Fifanarahan'ny hetsika amin'ny olona sy ny firenena/toerana voatondro, didim-pitsarana ary torohevitra momba ny fotoana."));
+    }
+    $("ev-result").innerHTML=blocks;
+    loader(false);
+    $("ev-result").scrollIntoView({behavior:"smooth",block:"start"});
+  },350);
+}
+function meter(label,score,lvl){
+  return `<div style="margin:6px 0"><div style="display:flex;justify-content:space-between;font-size:14px;margin-bottom:4px">
+    <span style="color:var(--label2)">${esc(label)}</span><span style="color:${lvl.c};font-weight:600">${LANG==="mg"?lvl.lab_mg:lvl.lab_fr}</span></div>
+    <div class="meter"><div class="meter-track"><div class="meter-fill" style="width:${Math.round(score/9*100)}%;background:${lvl.c}"></div></div>
+    <div class="meter-val" style="color:${lvl.c}">${score}/9</div></div></div>`;
+}
+
+/* ============================================================
+   MODULE PAYS / LIEUX
+   ============================================================ */
+function runCountry(){
+  const name=$("co-name").value.trim(),dob=$("co-dob").value,place=$("co-place").value.trim();
+  if(!name||!dob)return toast(tr("need_name"));
+  if(!place)return toast(tr("co_place"));
+  loader(true);
+  setTimeout(()=>{
+    const chart=computeChart(name,dob);
+    const cNum=nameNumber(place);
+    const sLP=compatScore(chart.lifePath,cNum);
+    const sExpr=compatScore(chart.expression,cNum);
+    const avg=(sLP+sExpr)/2;const lvl=compatLevel(avg);
+    let html=`<div class="event-big"><div class="event-num" style="background:${numColor(cNum)}">${cNum}</div>
+      <div class="event-label">${tr("country_energy")}</div><div class="event-name">${esc(place)}</div></div>`;
+    html+=`<div class="chart-card" style="background:${lvl.c}18;text-align:center">
+      <div style="font-size:15px;color:var(--label2)">${esc(name)} & ${esc(place)}</div>
+      <div style="font-size:22px;font-weight:700;color:${lvl.c};margin-top:2px">${LANG==="mg"?lvl.lab_mg:lvl.lab_fr}</div>
+      <div class="meter" style="margin-top:10px"><div class="meter-track"><div class="meter-fill" style="width:${Math.round(avg/9*100)}%;background:${lvl.c}"></div></div>
+      <div class="meter-val" style="color:${lvl.c}">${avg.toFixed(1)}</div></div></div>`;
+    if(isPro()){
+      html+=`<div class="chart-card"><div class="chart-title">📊 ${L("Détails","Antsipiriany")}</div>
+        ${meter(tr("lp")+" ↔ "+tr("country_energy"),sLP,compatLevel(sLP))}
+        ${meter(tr("expr")+" ↔ "+tr("country_energy"),sExpr,compatLevel(sExpr))}
+        <div class="chart-note">${L("Le lieu","Ny toerana")} « ${esc(place)} » ${L("vibre sur le","dia mihetsika amin'ny")} ${cNum} (${esc(DL(cNum)["title_"+LANG]||DL(cNum).title_fr)}). ${avg>=7?L("Ce lieu soutient bien votre énergie.","Manohana tsara ny angovonao ity toerana ity."):avg>=6?L("Ce lieu vous demande quelques adaptations.","Mila fanitsiana kely ity toerana ity."):L("Ce lieu vous poussera à grandir par le défi.","Hampitombo anao amin'ny fanamby ity toerana ity.")}</div></div>`;
+      html+=`<div class="chart-card"><div class="chart-title">💡 ${L("Conseils du lieu","Torohevitry ny toerana")} ${cNum}</div>
+        <div class="det-p">${esc(DL(cNum).advice)}</div>${kv(tr("s_luck"),DL(cNum).luck)}</div>`;
+    }else{
+      html+=lockPane(L("Analyse de lieu PRO","Analyse toerana PRO"),L("Détail Chemin de Vie & Expression face au lieu, forces/défis du lieu et conseils personnalisés.","Antsipiriany Lalan-tsaina & Fanehoana manoloana ny toerana, hery/fanamby ary torohevitra manokana."));
+    }
+    html+=`<p class="disclaimer">${tr("disc_short")}</p>`;
+    $("co-result").innerHTML=html;loader(false);
+    $("co-result").scrollIntoView({behavior:"smooth",block:"start"});
+  },350);
+}
+
+/* ============================================================
+   MODULE COMPATIBILITÉ (2 personnes)
+   ============================================================ */
+function runCompat(){
+  const n1=$("cp-n1").value.trim(),d1=$("cp-d1").value,n2=$("cp-n2").value.trim(),d2=$("cp-d2").value;
+  if(!n1||!d1||!n2||!d2)return toast(tr("need_name"));
+  loader(true);
+  setTimeout(()=>{
+    const a=computeChart(n1,d1),b=computeChart(n2,d2);
+    const love=compatScore(a.lifePath,b.lifePath);
+    const work=compatScore(a.expression,b.expression);
+    const soul=compatScore(a.soul,b.soul);
+    const avg=(love+work+soul)/3;const lvl=compatLevel(avg);
+    let html=`<div class="chart-card" style="background:${lvl.c}18;text-align:center">
+      <div style="font-size:15px;color:var(--label2)">${esc(n1.split(/\s+/)[0])} & ${esc(n2.split(/\s+/)[0])}</div>
+      <div style="font-size:28px;font-weight:700;color:${lvl.c};margin-top:2px">${LANG==="mg"?lvl.lab_mg:lvl.lab_fr}</div>
+      <div class="meter" style="margin-top:10px"><div class="meter-track"><div class="meter-fill" style="width:${Math.round(avg/9*100)}%;background:${lvl.c}"></div></div>
+      <div class="meter-val" style="color:${lvl.c}">${avg.toFixed(1)}</div></div></div>`;
+    html+=`<div class="chart-card"><div class="chart-title">💞 ${L("Scores","Isa")}</div>
+      ${meter("❤️ "+tr("s_love")+" ("+L("Chemin de Vie","Lalan-tsaina")+")",love,compatLevel(love))}`;
+    if(isPro()){
+      html+=`${meter("💼 "+tr("s_work")+" ("+L("Expression","Fanehoana")+")",work,compatLevel(work))}
+        ${meter("🔮 "+L("Âmes (Élan d'Âme)","Fanahy (Fanirian'ny fo)"),soul,compatLevel(soul))}</div>
+        <div class="chart-card"><div class="chart-title">🧭 ${L("Lecture","Vakiteny")}</div>
+        <div class="det-p">${esc(n1.split(/\s+/)[0])} (${L("Chemin","Lalana")} ${a.lifePath}, ${esc(DL(a.lifePath)["title_"+LANG]||DL(a.lifePath).title_fr)}) ${L("et","sy")} ${esc(n2.split(/\s+/)[0])} (${L("Chemin","Lalana")} ${b.lifePath}, ${esc(DL(b.lifePath)["title_"+LANG]||DL(b.lifePath).title_fr)}) ${L("forment une relation","dia mamorona fifandraisana")} ${(LANG==="mg"?lvl.lab_mg:lvl.lab_fr).toLowerCase()}. ${avg>=7?L("Les énergies se renforcent naturellement.","Mifanamafy voajanahary ny angovo."):avg>=6?L("Un bel équilibre demandant écoute mutuelle.","Fifandanjana tsara mila fifampihainoana."):L("Une relation d'apprentissage : les différences font grandir.","Fifandraisana fianarana: mampitombo ny fahasamihafana.")}</div></div>`;
+    }else{
+      html+=`</div>`+lockPane(L("Compatibilité complète PRO","Fifanarahana feno PRO"),L("Scores travail & âme, lecture détaillée du couple et conseils d'harmonisation.","Isa asa & fanahy, vakiteny feno ny mpivady ary torohevitra fampifanarahana."));
+    }
+    html+=`<p class="disclaimer">${tr("disc_short")}</p>`;
+    $("cp-result").innerHTML=html;loader(false);
+    $("cp-result").scrollIntoView({behavior:"smooth",block:"start"});
+  },350);
+}
+
+/* ============================================================
+   HISTORIQUE
+   ============================================================ */
+function loadHistory(){try{history=JSON.parse(localStorage.getItem("nm_hist")||"[]");}catch(e){history=[];}}
+function saveHistoryStore(){localStorage.setItem("nm_hist",JSON.stringify(history.slice(0,100)));}
+function saveToHistory(rec){
+  const idx=history.findIndex(h=>h.name===rec.name&&h.dob===rec.dob);
+  if(idx>=0)history[idx]={...rec,fav:history[idx].fav};
+  else history.unshift({...rec,fav:false});
+  saveHistoryStore();toast(tr("saved"));
+}
+function renderHistory(){
+  loadHistory();
+  const q=($("hist-search").value||"").toLowerCase();
+  const list=history.filter(h=>h.name.toLowerCase().includes(q));
+  const el=$("hist-list");
+  if(!list.length){el.innerHTML=`<div class="empty"><div class="empty-ic">🕘</div><div>${tr("no_history")}</div></div>`;return;}
+  el.innerHTML=list.map(h=>`<div class="hist-row" onclick="openHistory('${h.id}')">
+    <div class="hist-av">${initials(h.name)}</div>
+    <div class="hist-info"><div class="hist-nm">${esc(h.name)}</div>
+      <div class="hist-mt">${frDate(h.dob)} · CV ${h.lifePath} · Expr ${h.expression} · Âme ${h.soul}</div></div>
+    <button class="hist-star" onclick="event.stopPropagation();toggleFav('${h.id}')">${h.fav?"★":"☆"}</button>
+    <button class="hist-star" style="color:var(--label3)" onclick="event.stopPropagation();delHistory('${h.id}')">✕</button>
+  </div>`).join("");
+}
+function openHistory(id){const h=history.find(x=>String(x.id)===String(id));if(!h)return;currentChart=h;renderResult(h);showScreen("result");}
+function toggleFav(id){const h=history.find(x=>String(x.id)===String(id));if(h){h.fav=!h.fav;saveHistoryStore();renderHistory();}}
+function delHistory(id){history=history.filter(x=>String(x.id)!==String(id));saveHistoryStore();renderHistory();}
+function clearHistory(){if(confirm(tr("confirm_clear"))){history=[];saveHistoryStore();renderHistory();}}
+
+/* ============================================================
+   PARTAGE + PDF
+   ============================================================ */
+function shareCurrent(){
+  if(!currentChart)return;const c=currentChart;
+  const txt=`🔢 ${tr("app")} — ${c.name}\n${tr("born")} ${frDate(c.dob)}\n`+
+    `${tr("lp")}: ${c.lifePath} · ${tr("expr")}: ${c.expression} · ${tr("soul")}: ${c.soul}\n`+
+    `${tr("pers")}: ${c.personality} · Maturité: ${c.maturity}\n⚠️ ${tr("disc_short")}`;
+  if(navigator.share)navigator.share({title:tr("app"),text:txt}).catch(()=>{});
+  else{var ok=copyText(txt);toast(ok?tr("copied"):tr("code_bad"));}
+}
+function makePDF(){
+  if(!currentChart)return;const c=currentChart;
+  const w=window.open("","_blank");if(!w){toast("Popup bloqué");return;}
+  w.document.write(pdfHTML(c));w.document.close();w.focus();setTimeout(()=>w.print(),700);
+}
+function pdfHTML(c){
+  const d=ND(c.lifePath);
+  const row=(k,v)=>`<tr><td>${k}</td><td><b>${v}</b></td></tr>`;
+  const numRows=[["Chemin de Vie",c.lifePath],["Expression",c.expression],["Élan d'Âme",c.soul],
+    ["Personnalité",c.personality],["Birthday",c.birthday],["Maturité",c.maturity],
+    ["Cornerstone",c.cornerstone],["Balance",c.balance],["Pensée rationnelle",c.rational]];
+  const fc=c.forecast.map(f=>`<div style="display:flex;gap:10px;padding:6px 0;border-bottom:1px solid #eee">
+    <b style="color:#5856D6;width:50px">${f.year}</b><span style="width:26px;height:26px;border-radius:7px;background:${numColor(f.n)};color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:13px">${f.n}</span>
+    <span style="font-size:13px;color:#555">${(UNIV[f.n]||UNIV[reduce(f.n,false)]).fr}</span></div>`).join("");
+  return `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Rapport ${esc(c.name)}</title>
+  <style>*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,Segoe UI,sans-serif}
+  body{color:#111;padding:24px}
+  .cover{background:linear-gradient(150deg,#5856D6,#AF52DE 60%,#FF2D55);color:#fff;border-radius:20px;padding:36px;text-align:center;margin-bottom:24px}
+  .cover h1{font-size:30px}.cover .n{font-size:22px;font-weight:700;background:rgba(255,255,255,.2);display:inline-block;padding:10px 22px;border-radius:12px;margin-top:14px}
+  .nums{display:flex;justify-content:center;gap:12px;margin-top:20px;flex-wrap:wrap}
+  .nb{background:rgba(255,255,255,.2);border-radius:10px;padding:10px 14px}.nb .v{font-size:24px;font-weight:700}.nb .l{font-size:10px;opacity:.8}
+  h2{color:#5856D6;font-size:17px;border-bottom:2px solid #5856D6;padding-bottom:6px;margin:22px 0 12px}
+  table{width:100%;border-collapse:collapse;font-size:14px}td{padding:8px;border-bottom:1px solid #eee}
+  .warn{background:#FFF4E5;border:1px solid #FFCC80;border-radius:10px;padding:12px;font-size:12px;color:#8a5000;margin:14px 0}
+  .card{background:#F7F5FF;border-radius:12px;padding:16px;margin:10px 0;border-left:4px solid #5856D6}
+  .foot{text-align:center;font-size:11px;color:#888;margin-top:24px;border-top:1px solid #eee;padding-top:14px}
+  @media print{body{padding:0}.cover{border-radius:0}}</style></head><body>
+  <div class="cover"><div style="font-size:44px">🔢</div><h1>Numérologie Mada</h1><div style="font-size:13px;opacity:.85;margin-top:2px;font-weight:600">by APP Mada</div>
+    <div style="opacity:.85;font-size:13px;margin-top:4px">Rapport numérologique complet</div>
+    <div class="n">${esc(c.name)}</div>
+    <div style="opacity:.85;font-size:13px;margin-top:6px">${tr("born")} ${frDate(c.dob)}${c.gender?" · "+(c.gender==="M"?"Homme":"Femme"):""}</div>
+    <div class="nums">
+      <div class="nb"><div class="v">${c.lifePath}</div><div class="l">Chemin</div></div>
+      <div class="nb"><div class="v">${c.expression}</div><div class="l">Expression</div></div>
+      <div class="nb"><div class="v">${c.soul}</div><div class="l">Âme</div></div>
+      <div class="nb"><div class="v">${c.personality}</div><div class="l">Perso</div></div>
+      <div class="nb"><div class="v">${c.personalYear}</div><div class="l">Année</div></div></div></div>
+  <div class="warn">⚠️ Les résultats de cette application sont issus de la numérologie, une pratique de développement personnel et de tradition ésotérique. Ils sont proposés à titre de divertissement et de réflexion personnelle. Ils ne constituent ni une vérité scientifique, ni un avis médical, psychologique, juridique ou financier.</div>
+  <h2>Nombres fondamentaux</h2><table>${numRows.map(([k,v])=>row(k,v)).join("")}</table>
+  <div class="card"><b>${d.title_fr} — Chemin de Vie ${c.lifePath}</b><p style="font-size:14px;margin-top:6px;color:#444">${esc(d.desc)}</p>
+    <p style="font-size:13px;margin-top:8px;color:#5856D6"><b>Conseil :</b> ${esc(d.advice)}</p>
+    <p style="font-size:13px;margin-top:4px;color:#5856D6"><b>Carrière :</b> ${esc(d.career)}</p>
+    <p style="font-size:13px;margin-top:4px;color:#5856D6"><b>Pierre :</b> ${esc(d.stone)}</p></div>
+  <h2>Karma & leçons</h2><table>
+    ${row("Dettes karmiques",c.debts.length?c.debts.join(", "):"Aucune")}
+    ${row("Leçons karmiques",c.lessons.length?c.lessons.join(", "):"Toutes intégrées")}
+    ${row("Passion cachée",c.hiddenPassion)}${row("Moi subconscient",c.subconscious+"/9")}</table>
+  <h2>Cycles & sommets</h2><table>
+    ${row("Cycle formatif",c.cycles.first)}${row("Cycle productif",c.cycles.second)}${row("Cycle moisson",c.cycles.third)}
+    ${c.pinnacles.map((p,i)=>row("Pinnacle "+(i+1)+" ("+p.age+")",p.n)).join("")}</table>
+  <h2>Prévisions sur 9 ans</h2>${fc}
+  <div class="card" style="border-color:#FF2D55"><b>Citation inspirante</b><p style="font-style:italic;margin-top:6px">${esc(d.quote)}</p></div>
+  <div class="foot">Généré par Numérologie Mada by APP Mada · ${new Date().toLocaleDateString("fr-FR")}<br>⚠️ Divertissement uniquement — pas un avis médical ou professionnel.</div>
+  </body></html>`;
+}
+
+/* ============================================================
+   SHEETS : réglages, PRO, admin
+   ============================================================ */
+function openSheet(kind){
+  const t=$("sheet-title"),cnt=$("sheet-content");
+  if(kind==="settings"){t.textContent=tr("settings");cnt.innerHTML=settingsHTML();}
+  else if(kind==="pro"){t.textContent=tr("unlock_pro");cnt.innerHTML=proHTML();}
+  else if(kind==="admin"){t.textContent="Générateur (admin)";cnt.innerHTML=adminHTML();}
+  $("sheet-bg").classList.add("show");
+}
+function closeSheet(){$("sheet-bg").classList.remove("show");}
+function openPro(){openSheet("pro");}
+
+function settingsHTML(){
+  const proBadge=isPro()?`<span class="pro-pill">PRO</span>`:`<span class="free-pill">Gratuit</span>`;
+  const dark=document.documentElement.getAttribute("data-theme")==="dark";
+  return `<div class="group" style="margin-bottom:18px">
+    <div class="row" onclick="pickLangSheet()"><div class="row-icon" style="background:#5856D6">🌐</div>
+      <div class="row-label">${tr("lang")}</div><div class="row-val">${LANG==="fr"?"Français":"Malagasy"}</div><div class="row-chev">›</div></div>
+    <div class="row"><div class="row-icon" style="background:#1C1C1E">🌙</div>
+      <div class="row-label">${tr("dark")}</div>
+      <div class="seg" style="max-width:150px"><div class="seg-opt ${!dark?'on':''}" onclick="setTheme('light')">☀︎</div>
+      <div class="seg-opt ${dark?'on':''}" onclick="setTheme('dark')">🌙</div></div></div>
+  </div>
+  <div class="group" style="margin-bottom:18px">
+    <div class="row no-inset" onclick="${isPro()?'':'openPro()'}"><div class="row-icon" style="background:linear-gradient(135deg,#FFD60A,#FF9500)">👑</div>
+      <div class="row-label" style="flex:1">${tr("pro_status")}</div>${proBadge}${isPro()?'':'<div class="row-chev">›</div>'}</div>
+    <div class="row no-inset" onclick="restorePrompt()"><div class="row-icon" style="background:#34C759">↺</div>
+      <div class="row-label">${tr("restore")}</div><div class="row-chev">›</div></div>
+  </div>
+  <div class="group" style="margin-bottom:18px">
+    <div class="row no-inset" onclick="resetApp()"><div class="row-icon" style="background:#FF3B30">⟲</div>
+      <div class="row-label" style="color:var(--red)">${tr("reset")}</div></div>
+  </div>
+  <p class="disclaimer" style="padding:0 4px">Numérologie Mada by APP Mada · v2.0 · Numérologie pythagoricienne<br>${tr("disc_home")}</p>`;
+}
+function pickLangSheet(){LANG=LANG==="fr"?"mg":"fr";localStorage.setItem("nm_lang",LANG);applyLang();renderHomeHero();openSheet("settings");}
+function setTheme(t){document.documentElement.setAttribute("data-theme",t);localStorage.setItem("nm_theme",t);openSheet("settings");}
+function restorePrompt(){const c=prompt(tr("enter_code"));if(c){if(tryUnlock(c)){toast(tr("code_ok"));closeSheet();if(currentChart)renderResult(currentChart);}else toast(tr("code_bad"));}}
+function resetApp(){if(confirm(tr("reset_confirm"))){localStorage.removeItem("nm_hist");history=[];toast("OK");closeSheet();showScreen("home");}}
+
+function proHTML(){
+  const dev=makeDeviceId();
+  const feats=[["🔓","Profil complet","Amour, travail, santé, argent, carrière, professions, pierre"],
+    ["🔄","Cycles & Pinnacles","Chronologie de vie, défis, sommets 0–100 ans"],
+    ["⚡","Karma détaillé","Dettes, leçons, plans d'expression, passion cachée"],
+    ["🗓️","Prévisions 9 ans","Année, mois, jour personnels détaillés"],
+    ["🌍","Événements & pays","Analyse personnalisée date/heure/lieu/personne"],
+    ["📄","Rapport PDF","Export professionnel partageable"]];
+  if(isPro())return `<div class="pro-hero"><div class="pro-crown">👑</div><div class="pro-h1">PRO actif</div>
+    <div class="pro-price">Merci pour votre confiance 🎉</div></div>
+    <button class="btn btn-primary btn-lg" onclick="closeSheet()">Continuer</button>`;
+  return `<div class="pro-hero"><div class="pro-crown">👑</div>
+    <div class="pro-h1">${tr("unlock_title")}</div><div class="pro-price">${tr("unlock_sub")} · ${PRO_PRICE}</div></div>
+    <div class="group" style="margin-bottom:16px;padding:4px 12px">
+      ${feats.map(([i,t,d])=>`<div class="pro-feat"><div class="fic">✓</div><div><div class="ft">${i} ${t}</div><div class="fd">${d}</div></div></div>`).join("")}
+    </div>
+    <p class="section-hdr">${tr("device_label")}</p>
+    <div class="device-id" id="dev-id" onclick="copyDev()">${dev}</div>
+    <button class="btn btn-gray" onclick="copyDev()" style="margin-bottom:14px">📋 ${tr("copy_id")}</button>
+    <p class="sms-line">${tr("sms_instr")} <b>${SMS_NUMBER}</b><br>${tr("then_price")}</p>
+    <div class="code-box"><input class="code-input" id="pro-code" maxlength="9" placeholder="XXXX-XXXX" autocomplete="off"></div>
+    <button class="btn btn-primary btn-lg" onclick="doUnlock()">🔓 ${tr("activate")}</button>`;
+}
+function copyText(text){
+  var ok=false;
+  try{
+    var ta=document.createElement("textarea");
+    ta.value=text;ta.setAttribute("readonly","");
+    ta.style.position="fixed";ta.style.top="0";ta.style.left="0";
+    ta.style.width="1px";ta.style.height="1px";ta.style.opacity="0";ta.style.fontSize="16px";
+    document.body.appendChild(ta);
+    ta.focus();ta.select();
+    try{ta.setSelectionRange(0,text.length);}catch(e){}
+    ok=document.execCommand("copy");
+    document.body.removeChild(ta);
+  }catch(e){ok=false;}
+  if(!ok&&navigator.clipboard&&navigator.clipboard.writeText){
+    try{navigator.clipboard.writeText(text);ok=true;}catch(e){}
+  }
+  return ok;
+}
+function copyDev(){var d=makeDeviceId();var ok=copyText(d);toast(ok?tr("copied"):d);}
+function doUnlock(){const v=$("pro-code").value;if(tryUnlock(v)){toast(tr("code_ok"));closeSheet();if(currentChart)renderResult(currentChart);}else toast(tr("code_bad"));}
+
+/* admin generator (caché : 12 taps sur logo, puis PIN) */
+function logoTap(){logoTaps++;clearTimeout(logoTimer);logoTimer=setTimeout(()=>logoTaps=0,2500);
+  if(logoTaps>=12){logoTaps=0;const pin=prompt("PIN admin :");if(pin===ADMIN_PIN)openSheet("admin");else toast("PIN incorrect");}}
+function adminHTML(){
+  return `<p class="section-hdr">Générer un code depuis un ID client</p>
+    <div class="code-box"><input class="code-input" id="adm-id" placeholder="XXXX-XXXX" maxlength="9" style="letter-spacing:.08em"></div>
+    <button class="btn btn-primary" onclick="adminGen()">Générer le code</button>
+    <div id="adm-out" style="margin-top:16px"></div>`;
+}
+function adminGen(){
+  const id=($("adm-id").value||"").toUpperCase().replace(/[^A-Z0-9]/g,"");
+  if(id.length!==8)return toast("ID invalide (8 caractères)");
+  const fmt=id.slice(0,4)+"-"+id.slice(4);
+  const code=activationCodeFor(fmt);
+  $("adm-out").innerHTML=`<div class="chart-card"><div class="chart-title">Code d'activation</div>
+    <div class="device-id" style="font-size:22px;color:var(--green)">${code}</div>
+    <button class="btn btn-gray" onclick="var ok=copyText('${code}');toast(ok?tr('copied'):'${code}')">📋 Copier</button></div>`;
+}
+
+/* ============================================================
+   HOME HERO (dernière analyse)
+   ============================================================ */
+function renderHomeHero(){
+  loadHistory();
+  const slot=$("home-hero-slot");
+  const last=history[0];
+  if(!last){slot.innerHTML=`<div class="hero"><div class="hero-emoji">🔢</div>
+    <div class="hero-name">${tr("app")}</div>
+    <div class="hero-meta">${tr("onb_sub").split("·")[0]}</div></div>`;return;}
+  slot.innerHTML=`<div class="hero" onclick="openHistory('${last.id}')"><div class="hero-emoji">🔢</div>
+    <div class="hero-name">${esc(last.name)}</div><div class="hero-meta">${tr("born")} ${frDate(last.dob)}</div>
+    <div class="hero-nums">${heroNum(tr("lp"),last.lifePath)}${heroNum(tr("expr"),last.expression)}
+    ${heroNum(tr("soul"),last.soul)}${heroNum("Année",last.personalYear)}</div></div>`;
+}
+
+/* ============================================================
+   INIT
+   ============================================================ */
+function init(){
+  // theme
+  const theme=localStorage.getItem("nm_theme")||(matchMedia&&matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");
+  document.documentElement.setAttribute("data-theme",theme);
+  // placeholders
+  document.querySelectorAll("[data-ph]").forEach(e=>e.setAttribute("placeholder",e.getAttribute("data-ph")));
+  loadHistory();
+  const savedLang=localStorage.getItem("nm_lang");
+  if(savedLang){LANG=savedLang;applyLang();renderHomeHero();showScreen("home");}
+  else{showScreen("lang");}
+  // ensure device id exists
+  makeDeviceId();
+}
+if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init);else init();
+
+</script>
+</body>
+</html>
