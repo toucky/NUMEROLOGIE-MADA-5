@@ -1,0 +1,14 @@
+plugins { id 'com.android.application' }
+
+android {
+    namespace 'com.appmada.numerologiemada'
+    compileSdk 34
+    defaultConfig {
+        applicationId 'com.appmada.numerologiemada'
+        minSdk 23
+        targetSdk 34
+        versionCode 5
+        versionName '2.4'
+    }
+    buildTypes { release { minifyEnabled false } }
+}
