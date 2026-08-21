@@ -18,10 +18,14 @@ jobs:
         run: |
           set -euo pipefail
           ENDPOINT='https://xvwsdoqiesnqpyrqahwf.supabase.co/functions/v1/num-apk-publish-once-v25'
-          OUT="$(curl -fsS -X POST "$ENDPOINT")"
-          echo "$OUT"
-          echo "$OUT" | grep -q '"ok":true'
-          echo "$OUT" | grep -q '2f3a60b8258e420fc77c5b4b06f2efb7c00dabb750b24629221cc1375c10db6a'
+          BODY="$(mktemp)"
+          STATUS="$(curl -sS -o "$BODY" -w '%{http_code}' -X POST "$ENDPOINT")"
+          echo "HTTP $STATUS"
+          cat "$BODY"
+          echo
+          test "$STATUS" = '200'
+          grep -q '"ok":true' "$BODY"
+          grep -q '2f3a60b8258e420fc77c5b4b06f2efb7c00dabb750b24629221cc1375c10db6a' "$BODY"
 
       - name: Verify published bytes from public Storage
         shell: bash
