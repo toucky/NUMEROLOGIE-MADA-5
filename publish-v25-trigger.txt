@@ -1,3 +1,3 @@
 Publish exact validated Numérologie Mada v2.5 APK.
 Expected SHA-256: 2f3a60b8258e420fc77c5b4b06f2efb7c00dabb750b24629221cc1375c10db6a
-Attempt: drive-direct-3
+Attempt: drive-diagnostic-1
